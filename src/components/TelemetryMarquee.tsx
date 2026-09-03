@@ -4,13 +4,13 @@ import React from 'react';
 import { Zap, Shield, Server, Box, Cpu, Sparkles, CheckCircle2 } from 'lucide-react';
 
 const marqueeItems = [
-  { label: 'Paper & Purpur 1.21.x Verified', icon: <Server style={{ width: '0.85rem', height: '0.85rem', color: '#10b981' }} /> },
-  { label: '0.02ms Avg Tick Overhead', icon: <Zap style={{ width: '0.85rem', height: '0.85rem', color: '#3b82f6' }} /> },
-  { label: 'Zero Memory Leaks Guaranteed', icon: <Cpu style={{ width: '0.85rem', height: '0.85rem', color: '#a855f7' }} /> },
-  { label: '100% Open Source (GPL-3.0)', icon: <Shield style={{ width: '0.85rem', height: '0.85rem', color: '#10b981' }} /> },
-  { label: 'Folia Multi-threaded Ready', icon: <Sparkles style={{ width: '0.85rem', height: '0.85rem', color: '#3b82f6' }} /> },
+  { label: 'Paper API 26.2 Verified (Java 21)', icon: <Server style={{ width: '0.85rem', height: '0.85rem', color: '#10b981' }} /> },
+  { label: 'Geyser & Floodgate Bedrock Cross-Play', icon: <Cpu style={{ width: '0.85rem', height: '0.85rem', color: '#3b82f6' }} /> },
+  { label: 'Death Clock Auto-Recall (120s)', icon: <Zap style={{ width: '0.85rem', height: '0.85rem', color: '#a855f7' }} /> },
+  { label: 'The Abyssal Warden Boss (5,000 HP)', icon: <Shield style={{ width: '0.85rem', height: '0.85rem', color: '#ef4444' }} /> },
+  { label: 'Finite 3-Layer Void Dimension', icon: <Sparkles style={{ width: '0.85rem', height: '0.85rem', color: '#3b82f6' }} /> },
+  { label: '100% Zero-Lag Void Weather Fix', icon: <CheckCircle2 style={{ width: '0.85rem', height: '0.85rem', color: '#10b981' }} /> },
   { label: 'Direct .JAR Binary Downloads', icon: <Box style={{ width: '0.85rem', height: '0.85rem', color: '#f59e0b' }} /> },
-  { label: 'Dynamic YAML Config Generator', icon: <CheckCircle2 style={{ width: '0.85rem', height: '0.85rem', color: '#10b981' }} /> },
 ];
 
 export function TelemetryMarquee() {

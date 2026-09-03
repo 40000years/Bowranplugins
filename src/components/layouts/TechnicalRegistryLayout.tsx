@@ -23,7 +23,7 @@ export function TechnicalRegistryLayout() {
           <div className="registry-header-badge">
             <span className="registry-coord">INDEX: 0x40000Y</span>
             <span className="registry-coord">SERVER: PAPER/PURPUR</span>
-            <span className="registry-coord">API: 1.20 - 1.21.x</span>
+            <span className="registry-coord">API: PAPER 26.2</span>
             <span style={{ color: 'var(--success)' }}>● 2 RELEASES STABLE</span>
           </div>
 
@@ -197,7 +197,7 @@ export function TechnicalRegistryLayout() {
                 Server Engine Verification
               </h3>
               <p style={{ fontSize: '0.8125rem', color: 'var(--text-secondary)', lineHeight: 1.6 }}>
-                Tested on Paper 1.20.4 through 1.21.4. Native Folia asynchronous chunk support is planned.
+                Tested and compiled on Paper API 26.2.build.121-stable (Java 21) with Floodgate & Geyser cross-play integration.
               </p>
             </div>
 

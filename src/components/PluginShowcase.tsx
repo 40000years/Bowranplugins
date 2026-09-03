@@ -17,8 +17,8 @@ export function PluginShowcase() {
             <h2 className="text-heading" style={{ marginBottom: '1rem' }}>
               Explore the Plugins
             </h2>
-            <p className="text-subheading" style={{ maxWidth: '480px', margin: '0 auto' }}>
-              Small tools for servers that want something different.
+            <p className="text-subheading" style={{ maxWidth: '520px', margin: '0 auto' }}>
+              Production-ready Paper 26.2 plugins with native cross-platform support.
             </p>
           </div>
         </ScrollReveal>

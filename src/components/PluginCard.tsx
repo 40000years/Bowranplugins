@@ -63,7 +63,7 @@ export function PluginCard({ plugin }: PluginCardProps) {
             <span className="badge">v{latestVersion.version}</span>
           )}
           {plugin.testedVersions[0] && (
-            <span className="badge">MC {plugin.testedVersions[0]}</span>
+            <span className="badge">Paper {plugin.testedVersions[0]}</span>
           )}
           <span className="badge">{plugin.category}</span>
           {plugin.platforms.slice(0, 2).map((p) => (

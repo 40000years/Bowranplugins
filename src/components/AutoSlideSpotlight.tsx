@@ -181,7 +181,7 @@ export function AutoSlideSpotlight() {
             <span className="badge" style={{ color: activePlugin.accentColor, borderColor: `${activePlugin.accentColor}44` }}>
               {activePlugin.category}
             </span>
-            <span className="badge">MC {activePlugin.testedVersions[0]}</span>
+            <span className="badge">Paper {activePlugin.testedVersions[0]}</span>
             {activePlugin.platforms.map((p) => (
               <span key={p} className="badge">
                 {p}

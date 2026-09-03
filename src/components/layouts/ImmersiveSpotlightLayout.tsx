@@ -44,7 +44,7 @@ export function ImmersiveSpotlightLayout() {
                 lineHeight: 1.6,
               }}
             >
-              Transforming death mechanics and void boundaries on Paper & Purpur Minecraft servers.
+              Transforming death mechanics and void boundaries on Paper 26.2 (Java 21) Minecraft servers.
             </p>
           </div>
 

@@ -110,7 +110,7 @@ export default function PluginDetailPage() {
                   <span className="badge badge-accent">v{latestVersion.version}</span>
                 )}
                 {plugin.testedVersions.map((v) => (
-                  <span key={v} className="badge">MC {v}</span>
+                  <span key={v} className="badge">Paper {v}</span>
                 ))}
                 <span className="badge">{plugin.category}</span>
                 {plugin.platforms.map((p) => (
@@ -134,7 +134,7 @@ export default function PluginDetailPage() {
                     <p className="download-stat-value">v{latestVersion.version}</p>
                   </div>
                   <div>
-                    <p className="download-stat-label">Minecraft</p>
+                    <p className="download-stat-label">Paper API</p>
                     <p className="download-stat-value">{latestVersion.minecraftVersions.join(', ')}</p>
                   </div>
                   <div>
