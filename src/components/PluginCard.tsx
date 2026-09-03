@@ -2,18 +2,35 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { Download, BookOpen, ArrowRight } from 'lucide-react';
+import { useRouter } from 'next/navigation';
+import { Download, ArrowRight } from 'lucide-react';
 import { PluginData } from '@/types/plugin';
+import { PluginIcon } from './PluginIcon';
 
 interface PluginCardProps {
   plugin: PluginData;
 }
 
 export function PluginCard({ plugin }: PluginCardProps) {
+  const router = useRouter();
   const latestVersion = plugin.versions[0];
 
+  const handleCardClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    // Avoid triggering card navigation if user clicked an inner link or button
+    if ((e.target as HTMLElement).closest('a, button')) {
+      return;
+    }
+    router.push(`/plugins/${plugin.slug}`);
+  };
+
   return (
-    <Link href={`/plugins/${plugin.slug}`} className="plugin-card" id={`plugin-${plugin.id}`}>
+    <div
+      role="article"
+      onClick={handleCardClick}
+      className="plugin-card"
+      id={`plugin-${plugin.id}`}
+      style={{ cursor: 'pointer' }}
+    >
       <div
         className="plugin-card-gradient"
         style={{
@@ -28,10 +45,14 @@ export function PluginCard({ plugin }: PluginCardProps) {
             boxShadow: `0 0 24px ${plugin.accentGlow}`,
           }}
         >
-          {plugin.iconEmoji}
+          <PluginIcon slug={plugin.slug} color={plugin.accentColor} size="1.75rem" />
         </div>
 
-        <h3 className="plugin-card-name">{plugin.name}</h3>
+        <h3 className="plugin-card-name">
+          <Link href={`/plugins/${plugin.slug}`}>
+            {plugin.name}
+          </Link>
+        </h3>
 
         <p className="plugin-card-tagline">&ldquo;{plugin.tagline}&rdquo;</p>
 
@@ -50,7 +71,7 @@ export function PluginCard({ plugin }: PluginCardProps) {
           ))}
         </div>
 
-        <div className="plugin-card-actions" onClick={(e) => e.preventDefault()}>
+        <div className="plugin-card-actions">
           <Link href={`/plugins/${plugin.slug}`} className="btn btn-primary btn-sm">
             <ArrowRight style={{ width: '0.875rem', height: '0.875rem' }} />
             View Details
@@ -61,6 +82,6 @@ export function PluginCard({ plugin }: PluginCardProps) {
           </Link>
         </div>
       </div>
-    </Link>
+    </div>
   );
 }

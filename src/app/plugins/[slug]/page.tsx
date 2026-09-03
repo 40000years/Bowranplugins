@@ -8,6 +8,7 @@ import { VoidBackground } from '@/components/VoidBackground';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { ScrollReveal } from '@/components/ScrollReveal';
+import { PluginIcon } from '@/components/PluginIcon';
 import { getPluginBySlug } from '@/lib/plugins-data';
 import {
   ArrowLeft,
@@ -94,7 +95,7 @@ export default function PluginDetailPage() {
                 className="detail-icon"
                 style={{ boxShadow: `0 0 32px ${plugin.accentGlow}` }}
               >
-                {plugin.iconEmoji}
+                <PluginIcon slug={plugin.slug} color={plugin.accentColor} size="2.25rem" />
               </div>
             </ScrollReveal>
 

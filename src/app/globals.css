@@ -1213,3 +1213,712 @@ a:focus-visible {
 [data-theme='light'] .noise-overlay::after {
   opacity: 0.02;
 }
+
+/* ============================================
+   LAYOUT SWITCHER FLOATING DOCK
+   ============================================ */
+
+.layout-switcher-dock {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 999;
+  background: var(--bg-glass-heavy);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--border-hover);
+  border-radius: 9999px;
+  padding: 0.35rem 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.45);
+}
+
+.layout-switcher-label {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  padding: 0 0.75rem 0 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  border-right: 1px solid var(--border-default);
+}
+
+.layout-switcher-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.85rem;
+  border-radius: 9999px;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: all 0.2s ease;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  white-space: nowrap;
+}
+
+.layout-switcher-btn:hover {
+  color: var(--text-primary);
+  background: var(--bg-tertiary);
+}
+
+.layout-switcher-btn.active {
+  background: var(--accent);
+  color: #ffffff;
+  font-weight: 600;
+  box-shadow: 0 2px 10px var(--accent-glow-strong);
+}
+
+/* ============================================
+   LAYOUT 1: TERMINAL SPLIT
+   ============================================ */
+
+.terminal-hero {
+  position: relative;
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  padding: 7rem 0 4rem;
+}
+
+.terminal-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3.5rem;
+  align-items: center;
+  width: 100%;
+}
+
+@media (min-width: 960px) {
+  .terminal-grid {
+    grid-template-columns: 1.15fr 1fr;
+    gap: 4rem;
+  }
+}
+
+.terminal-lead {
+  text-align: left;
+}
+
+.server-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-default);
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.server-status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--success);
+  box-shadow: 0 0 8px var(--success);
+  animation: pulse-dot 2s infinite ease-in-out;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+.terminal-h1 {
+  font-size: clamp(2.25rem, 4.5vw, 3.75rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin-bottom: 1.25rem;
+  color: var(--text-primary);
+}
+
+.terminal-desc {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  max-width: 520px;
+  margin-bottom: 2rem;
+}
+
+.terminal-specs-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.terminal-spec-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.terminal-spec-value {
+  font-size: 1.25rem;
+  font-weight: 700;
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--text-primary);
+}
+
+.terminal-spec-label {
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+
+/* Interactive Server Console Window */
+.server-console-window {
+  background: rgba(10, 10, 16, 0.9);
+  border: 1px solid var(--border-default);
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8125rem;
+  position: relative;
+}
+
+.console-titlebar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  background: var(--bg-tertiary);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.console-dots {
+  display: flex;
+  gap: 0.375rem;
+}
+
+.console-dot {
+  width: 0.65rem;
+  height: 0.65rem;
+  border-radius: 50%;
+}
+
+.console-dot-red { background: #ef4444; }
+.console-dot-yellow { background: #f59e0b; }
+.console-dot-green { background: #10b981; }
+
+.console-tabs {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.console-tab {
+  padding: 0.25rem 0.65rem;
+  border-radius: 0.375rem;
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.2s;
+  background: transparent;
+  border: none;
+}
+
+.console-tab:hover {
+  color: var(--text-secondary);
+}
+
+.console-tab.active {
+  color: var(--text-primary);
+  background: var(--bg-primary);
+}
+
+.console-body {
+  padding: 1.25rem;
+  min-height: 280px;
+  max-height: 360px;
+  overflow-y: auto;
+  line-height: 1.6;
+}
+
+.log-line {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.35rem;
+  word-break: break-word;
+}
+
+.log-time { color: var(--text-muted); }
+.log-level-info { color: #3b82f6; font-weight: 600; }
+.log-level-success { color: #10b981; font-weight: 600; }
+.log-plugin-tag { color: var(--accent); }
+.log-message { color: var(--text-secondary); }
+
+/* In-game Minecraft chat simulation */
+.mc-chat-container {
+  background: rgba(0, 0, 0, 0.65);
+  border-radius: 0.5rem;
+  padding: 0.85rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8125rem;
+}
+
+.mc-chat-line {
+  margin-bottom: 0.35rem;
+  line-height: 1.4;
+}
+
+/* ============================================
+   LAYOUT 2: TECHNICAL REGISTRY & BLUEPRINT
+   ============================================ */
+
+.registry-hero {
+  padding: 7rem 0 3.5rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.registry-header-badge {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-bottom: 1.25rem;
+}
+
+.registry-coord {
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-subtle);
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+}
+
+.registry-table-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-default);
+  border-radius: 1rem;
+  overflow: hidden;
+  margin-top: 2rem;
+}
+
+.registry-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.registry-table th {
+  text-align: left;
+  padding: 1rem 1.25rem;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  background: var(--bg-tertiary);
+  border-bottom: 1px solid var(--border-default);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.registry-table td {
+  padding: 1.25rem;
+  border-bottom: 1px solid var(--border-subtle);
+  vertical-align: middle;
+}
+
+.registry-table tr:last-child td {
+  border-bottom: none;
+}
+
+.registry-table tr:hover td {
+  background: var(--bg-card-hover);
+}
+
+.registry-plugin-name {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+/* ============================================
+   LAYOUT 3: IMMERSIVE SPOTLIGHT (GAMING)
+   ============================================ */
+
+.spotlight-hero {
+  padding: 7rem 0 4rem;
+}
+
+.spotlight-selector-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 2.5rem;
+}
+
+.spotlight-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.6rem 1.25rem;
+  border-radius: 9999px;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-default);
+  font-weight: 600;
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.spotlight-pill:hover {
+  color: var(--text-primary);
+  border-color: var(--border-hover);
+}
+
+.spotlight-pill.active {
+  background: var(--bg-elevated);
+  border-color: var(--pill-accent, var(--accent));
+  color: var(--text-primary);
+  box-shadow: 0 0 24px var(--pill-glow, var(--accent-glow));
+}
+
+.spotlight-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-default);
+  border-radius: 1.5rem;
+  padding: 2.5rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+@media (min-width: 880px) {
+  .spotlight-card {
+    grid-template-columns: 1.2fr 1fr;
+    align-items: center;
+  }
+}
+
+.spotlight-glow {
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(80px);
+  opacity: 0.15;
+}
+
+/* ============================================
+   TELEMETRY MARQUEE (Auto-scrolling Ticker)
+   ============================================ */
+
+.marquee-section {
+  width: 100%;
+  overflow: hidden;
+  padding: 1.25rem 0;
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+  background: var(--bg-tertiary);
+  position: relative;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  gap: 3rem;
+  animation: marquee-scroll 28s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.marquee-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+.marquee-item-accent {
+  color: var(--accent);
+}
+
+.marquee-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--border-hover);
+}
+
+/* ============================================
+   AUTO-SLIDE SPOTLIGHT ENHANCEMENTS
+   ============================================ */
+
+.spotlight-auto-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.spotlight-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.spotlight-nav-btn {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-default);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.spotlight-nav-btn:hover {
+  background: var(--bg-card-hover);
+  color: var(--text-primary);
+  border-color: var(--border-hover);
+}
+
+.spotlight-pill-wrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: 9999px;
+}
+
+.spotlight-progress-line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  background: var(--pill-accent, var(--accent));
+  border-radius: 9999px;
+  box-shadow: 0 0 8px var(--pill-accent, var(--accent));
+  transition: width 0.08s linear;
+}
+
+/* ============================================
+   IN-GAME MECHANICS SIMULATORS
+   ============================================ */
+
+.mechanic-sim-card {
+  background: #09090f;
+  border: 1px solid var(--border-default);
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7);
+  position: relative;
+}
+
+.sim-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid var(--border-subtle);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.sim-body {
+  padding: 1.5rem;
+  position: relative;
+  min-height: 240px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* Minecraft Death Screen Simulator */
+.death-screen-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(139, 0, 0, 0.35);
+  backdrop-filter: blur(4px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  animation: death-flash 0.5s ease-out;
+  z-index: 10;
+}
+
+@keyframes death-flash {
+  0% { background: rgba(255, 0, 0, 0.8); }
+  100% { background: rgba(139, 0, 0, 0.35); }
+}
+
+.death-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 2.25rem;
+  font-weight: 900;
+  color: #ff3b30;
+  letter-spacing: 0.05em;
+  text-shadow: 0 0 20px rgba(255, 59, 48, 0.6), 2px 2px 0px #000;
+  margin-bottom: 0.5rem;
+}
+
+.death-subtitle {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.875rem;
+  color: #e5e5ea;
+  text-shadow: 1px 1px 2px #000;
+  margin-bottom: 1.25rem;
+}
+
+.death-timer-pill {
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 0.3rem 0.85rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  color: #ffd60a;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Void Depth Meter Simulator */
+.void-depth-meter {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.depth-bar-track {
+  width: 100%;
+  height: 12px;
+  background: var(--bg-tertiary);
+  border-radius: 6px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+}
+
+.depth-bar-indicator {
+  height: 100%;
+  background: linear-gradient(90deg, #10b981 0%, #3b82f6 50%, #8b5cf6 85%, #ec4899 100%);
+  border-radius: 6px;
+  transition: width 0.4s ease;
+}
+
+.depth-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  text-align: center;
+}
+
+.depth-stat-box {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+
+.depth-stat-label {
+  color: var(--text-muted);
+  font-size: 0.65rem;
+  text-transform: uppercase;
+}
+
+.depth-stat-val {
+  color: var(--text-primary);
+  font-weight: 700;
+  margin-top: 0.15rem;
+}
+
+/* View Mode Selector inside Plugins Section */
+.plugins-view-mode-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--border-subtle);
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.view-mode-toggle {
+  display: inline-flex;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-default);
+  border-radius: 9999px;
+  padding: 0.25rem;
+  gap: 0.25rem;
+}
+
+.view-mode-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.4rem 0.9rem;
+  border-radius: 9999px;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  transition: all 0.2s ease;
+}
+
+.view-mode-btn:hover {
+  color: var(--text-primary);
+}
+
+.view-mode-btn.active {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-weight: 600;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-hover);
+}
+
+

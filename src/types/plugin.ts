@@ -33,7 +33,7 @@ export interface PluginData {
   tagline: string;
   description: string;
   longDescription: string;
-  iconEmoji: string;
+  iconEmoji?: string;
   accentColor: string;
   accentGlow: string;
   gradientFrom: string;

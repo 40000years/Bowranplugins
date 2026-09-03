@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { ScrollReveal } from './ScrollReveal';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, Sparkles, ArrowRight, Github } from 'lucide-react';
 
 export function Hero() {
   return (
@@ -11,7 +11,7 @@ export function Hero() {
         <ScrollReveal>
           <div className="hero-badge">
             <span className="badge badge-accent">
-              <span style={{ fontSize: '0.5rem', lineHeight: 1 }}>◆</span>
+              <Sparkles style={{ width: '0.75rem', height: '0.75rem' }} />
               Minecraft Plugin Development
             </span>
           </div>
@@ -35,6 +35,7 @@ export function Hero() {
           <div className="hero-actions">
             <a href="#plugins" className="btn btn-primary btn-lg">
               Explore Plugins
+              <ArrowRight style={{ width: '1rem', height: '1rem' }} />
             </a>
             <a
               href="https://github.com/40000years"
@@ -42,6 +43,7 @@ export function Hero() {
               rel="noopener noreferrer"
               className="btn btn-secondary btn-lg"
             >
+              <Github style={{ width: '1rem', height: '1rem' }} />
               View GitHub
             </a>
           </div>

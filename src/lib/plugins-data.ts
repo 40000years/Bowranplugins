@@ -10,7 +10,6 @@ export const PLUGINS: PluginData[] = [
       'A Minecraft plugin that transforms the death experience on your server. Afterdeath introduces post-mortem mechanics, custom respawn behaviors, and death-triggered events that add depth and consequence to every fall.',
     longDescription:
       'Afterdeath reimagines what it means to die in Minecraft. Instead of a simple respawn, players experience custom post-death sequences, configurable consequences, and unique mechanics that make survival feel meaningful again. Whether you want to add death penalties, custom respawn animations, or entirely new post-mortem gameplay loops — Afterdeath gives you the tools to make death matter on your server.',
-    iconEmoji: '💀',
     accentColor: '#a855f7',
     accentGlow: 'rgba(168, 85, 247, 0.15)',
     gradientFrom: '#1a0a2e',
@@ -106,7 +105,6 @@ export const PLUGINS: PluginData[] = [
       'A Minecraft plugin that expands the concept of the Void. Voidscape introduces new void-related mechanics, custom void dimensions, and environmental effects that transform the emptiness beneath the world into something alive.',
     longDescription:
       'Voidscape turns the most feared part of Minecraft — the Void — into a feature. Instead of instant death, the Void becomes a configurable environment with its own rules, effects, and possibilities. Create custom void behaviors, trigger events when players enter void zones, build void-based challenges, or simply make falling into the Void a more interesting experience. Voidscape gives server administrators complete control over the space beneath the world.',
-    iconEmoji: '🕳️',
     accentColor: '#3b82f6',
     accentGlow: 'rgba(59, 130, 246, 0.15)',
     gradientFrom: '#0a1628',
