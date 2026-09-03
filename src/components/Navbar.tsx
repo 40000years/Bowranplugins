@@ -40,8 +40,8 @@ export function Navbar() {
 
   const navLinks = [
     { label: 'Home', href: '/' },
-    { label: 'Plugins', href: '/#plugins' },
-    { label: 'Documentation', href: '/#documentation' },
+    { label: 'Plugins', href: '/plugins' },
+    { label: 'Documentation', href: '/#about' },
     { label: 'About', href: '/#about' },
   ];
 

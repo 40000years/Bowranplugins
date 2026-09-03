@@ -29,7 +29,7 @@ export function Footer() {
           <div>
             <h4 className="footer-heading">Navigate</h4>
             <Link href="/" className="footer-link">Home</Link>
-            <Link href="/#plugins" className="footer-link">Plugins</Link>
+            <Link href="/plugins" className="footer-link">Plugins</Link>
             <Link href="/plugins/afterdeath" className="footer-link">Afterdeath</Link>
             <Link href="/plugins/voidscape" className="footer-link">Voidscape</Link>
           </div>
