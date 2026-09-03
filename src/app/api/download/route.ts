@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { POPULAR_PLUGINS } from '@/lib/plugins-data';
+import { PLUGINS } from '@/lib/plugins-data';
 
 export async function GET(request: NextRequest) {
   const searchParams = request.nextUrl.searchParams;
@@ -10,7 +10,7 @@ export async function GET(request: NextRequest) {
     return new NextResponse('Plugin ID required', { status: 400 });
   }
 
-  const plugin = POPULAR_PLUGINS.find((p) => p.id === pluginId);
+  const plugin = PLUGINS.find((p) => p.id === pluginId);
   if (!plugin) {
     return new NextResponse('Plugin not found', { status: 404 });
   }
@@ -18,14 +18,14 @@ export async function GET(request: NextRequest) {
   const versionObj = plugin.versions.find((v) => v.version === versionStr) || plugin.versions[0];
   const filename = versionObj.filename || `${plugin.name}-${versionObj.version}.jar`;
 
-  // Create dummy plugin .jar bytes with manifest metadata header for demonstration
-  const jarContent = `PK\x03\x04\x14\x00\x08\x00\x08\x00Minecraft Plugin Manifest:
-Name: ${plugin.name}
-Version: ${versionObj.version}
-Author: ${plugin.author}
-Platforms: ${plugin.platforms.join(', ')}
-Target MC Versions: ${versionObj.gameVersions.join(', ')}
-Built for Vercel Deployment Test
+  // Placeholder .jar content for demonstration
+  const content = `PK\x03\x04\x14\x00\x08\x00\x08\x00
+plugin.yml:
+  name: ${plugin.name}
+  version: ${versionObj.version}
+  author: ${plugin.author}
+  description: ${plugin.tagline}
+  api-version: '1.20'
 `;
 
   const headers = new Headers();
@@ -33,8 +33,5 @@ Built for Vercel Deployment Test
   headers.set('Content-Disposition', `attachment; filename="${filename}"`);
   headers.set('Cache-Control', 'public, max-age=3600');
 
-  return new NextResponse(jarContent, {
-    status: 200,
-    headers,
-  });
+  return new NextResponse(content, { status: 200, headers });
 }
