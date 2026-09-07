@@ -28,11 +28,10 @@ export function TechnicalRegistryLayout() {
           </div>
 
           <h1 style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 800, letterSpacing: '-0.02em', marginBottom: '1rem', color: 'var(--text-primary)' }}>
-            Bowran Plugin Registry
+            รายชื่อปลั๊กอินทั้งหมด
           </h1>
           <p style={{ fontSize: '1rem', color: 'var(--text-secondary)', maxWidth: '640px', lineHeight: 1.6 }}>
-            Technical repository for server administrators. Verify compatibility, inspect changelogs,
-            and fetch verified binary releases.
+            รวมปลั๊กอินทั้งหมดสำหรับเซิร์ฟเวอร์ Minecraft พร้อมดาวน์โหลดไฟล์ .jar และดูคำสั่งการใช้งาน
           </p>
         </div>
       </section>

@@ -2,11 +2,12 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Bowranplugins — Minecraft Plugins from the Edge of the Void (Paper 26.2)',
+  title: 'Bowranplugins — รวมปลั๊กอิน Minecraft (Paper / Spigot)',
   description:
-    'Official repository for Bowranplugins on Paper 26.2 (Java 21). Download Afterdeath, Voidscape, AdvancedCombat, AntiFreecam, and NightVisionToggle.',
+    'เว็บรวมปลั๊กอิน Minecraft สำหรับเซิร์ฟเวอร์ Paper และ Purpur ดาวน์โหลดไฟล์ .jar ไปใช้งานได้ทันที',
   keywords: [
     'minecraft plugins',
+    'ปลั๊กอิน minecraft',
     'bowranplugins',
     'afterdeath',
     'voidscape',
@@ -14,10 +15,6 @@ export const metadata: Metadata = {
     'antifreecam',
     'nightvision',
     'paper 26.2',
-    'paper plugins',
-    'geyser',
-    'floodgate',
-    'minecraft server',
   ],
 };
 

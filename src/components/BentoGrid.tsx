@@ -2,45 +2,45 @@
 
 import React from 'react';
 import { ScrollReveal } from './ScrollReveal';
-import { Compass, Clock, Smartphone, Zap, Server, ShieldCheck } from 'lucide-react';
+import { Download, Server, Smartphone, BookOpen, RefreshCw, Github } from 'lucide-react';
 
 const bentoItems = [
   {
-    icon: <Compass strokeWidth={1.5} style={{ width: '1.25rem', height: '1.25rem' }} />,
-    title: 'Finite 3-Layer Void Dive & The Abyssal Warden',
+    icon: <Download strokeWidth={1.5} style={{ width: '1.25rem', height: '1.25rem' }} />,
+    title: 'ดาวน์โหลดไฟล์ .jar ตรง พร้อมใช้งาน',
     description:
-      'Voidscape ปรับแต่งความว่างเปล่าใต้โลกให้กลายเป็นมิติดำดิ่ง 3 เลเยอร์ (โลก the_void) ผ่านประตูกล Bedrock Y <= -59 สู่เกาะลอยฟ้า และลานประลองบอสยักษ์ The Abyssal Warden ขนาด 4.5 เท่า (5,000 HP) พร้อมสกิล Abyssal Gravity Pull',
+      'สามารถดาวน์โหลดไฟล์ปลั๊กอิน .jar ไปลงในโฟลเดอร์ plugins ของเซิร์ฟเวอร์ได้ทันที ไม่ต้องผ่านเว็บครอบลิงก์',
     span: true,
   },
   {
-    icon: <Clock strokeWidth={1.5} style={{ width: '1.25rem', height: '1.25rem' }} />,
-    title: 'Death Clock Recall System',
+    icon: <Server strokeWidth={1.5} style={{ width: '1.25rem', height: '1.25rem' }} />,
+    title: 'รองรับ Paper & Purpur',
     description:
-      'Afterdeath ส่ง "นาฬิกาย้อนเวลา" เข้ามือผู้เล่นทันทีหลังเกิดใหม่ บันทึกพิกัด X/Y/Z คลิกขวาเพื่อวาร์ปกลับจุดตายได้ทันทีภายใน 120 วินาที (ใช้งานได้ 1 ครั้ง)',
+      'ปลั๊กอินถูกสร้างและทดสอบกับเซิร์ฟเวอร์ Paper และ Purpur 26.2 ทำงานเสถียร ไม่กินสเปก',
   },
   {
     icon: <Smartphone strokeWidth={1.5} style={{ width: '1.25rem', height: '1.25rem' }} />,
-    title: 'Geyser & Bedrock Cross-Play',
+    title: 'เล่นข้ามแพลตฟอร์ม (Geyser)',
     description:
-      'รองรับทั้ง Java Edition และ Bedrock Edition (iOS, Android, Win10) ผ่าน Floodgate API พร้อมคำสั่ง /platform ตรวจสอบแพลตฟอร์มแบบเรียลไทม์',
+      'หลายปลั๊กอินออกแบบมาให้รองรับทั้งผู้เล่น Java Edition และผู้เล่น Bedrock บนมือถือ',
   },
   {
-    icon: <Zap strokeWidth={1.5} style={{ width: '1.25rem', height: '1.25rem' }} />,
-    title: '100% Zero-Lag Weather Override',
+    icon: <BookOpen strokeWidth={1.5} style={{ width: '1.25rem', height: '1.25rem' }} />,
+    title: 'มีคำสั่งและวิธีใช้งานครบ',
     description:
-      'ปิดการเรนเดอร์ฝนและพายุในมิติ The Void อย่างถาวร แก้ปัญหา Client Drop FPS ได้ 100% พร้อมหมอก Darkness และ Blindness ที่ไม่กินสเปกเครื่องเล่น',
+      'ในหน้าของแต่ละปลั๊กอินมีบอกคำสั่ง สิทธิ์ และวิธีติดตั้งไว้อย่างละเอียด ดูเข้าใจง่าย',
   },
   {
-    icon: <ShieldCheck strokeWidth={1.5} style={{ width: '1.25rem', height: '1.25rem' }} />,
-    title: 'Void Entities & Custom Gear',
+    icon: <RefreshCw strokeWidth={1.5} style={{ width: '1.25rem', height: '1.25rem' }} />,
+    title: 'อัปเดตต่อเนื่อง',
     description:
-      'มอนสเตอร์ยักษ์พญาเงาเวหาทมิฬ (HP 400), ภูตทมิฬกลืนวิญญาณ (HP 280), แร่ Voidic Crystal, ผลไม้ Null Fruit, และดาบ Shadow Blade (สกิล Shadow Dash คูลดาวน์ 6 วิ)',
+      'มีการปรับปรุงโค้ด แก้ไขบั๊ก และเพิ่มระบบใหม่ๆ ตามการใช้งานจริงในเซิร์ฟเวอร์เสมอ',
   },
   {
-    icon: <Server strokeWidth={1.5} style={{ width: '1.25rem', height: '1.25rem' }} />,
-    title: 'Paper 26.2 & Java 21 Native',
+    icon: <Github strokeWidth={1.5} style={{ width: '1.25rem', height: '1.25rem' }} />,
+    title: 'ดูโค้ดบน GitHub ได้',
     description:
-      'คอมไพล์บน Paper API 26.2.build.121-stable ด้วย Java 21 ทำงานแบบ Asynchronous ไร้ผลกระทบต่อ TPS 20.0 ของเซิร์ฟเวอร์',
+      'สามารถเข้าไปดูโค้ด ติดตามการพัฒนา หรือแจ้งปัญหาได้ที่ GitHub ของโปรเจกต์',
   },
 ];
 
@@ -51,13 +51,13 @@ export function BentoGrid() {
         <ScrollReveal>
           <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
             <p className="text-label" style={{ marginBottom: '0.75rem' }}>
-              Engineered Mechanics
+              เกี่ยวกับเรา
             </p>
             <h2 className="text-heading" style={{ marginBottom: '1rem' }}>
-              ระบบจริงที่ออกแบบสำหรับเซิร์ฟเวอร์
+              Bowranplugins คืออะไร?
             </h2>
             <p className="text-subheading" style={{ maxWidth: '520px', margin: '0 auto' }}>
-              ฟังก์ชันกลไกเกมเฉพาะตัวที่ทำงานร่วมกันได้อย่างสมบูรณ์แบบบน Paper 26.2
+              เว็บรวมปลั๊กอินสำหรับเซิร์ฟเวอร์ Minecraft ที่พัฒนาขึ้นมาใช้งานเอง และเปิดให้ทุกคนสามารถดาวน์โหลดไปใช้งานได้ฟรี
             </p>
           </div>
         </ScrollReveal>

@@ -20,7 +20,7 @@ export function ImmersiveSpotlightLayout() {
                 marginBottom: '0.5rem',
               }}
             >
-              The Bowranplugins Suite
+              Minecraft Server Plugins
             </span>
             <h1
               style={{
@@ -32,8 +32,7 @@ export function ImmersiveSpotlightLayout() {
                 marginBottom: '0.75rem',
               }}
             >
-              Plugins from the{' '}
-              <span style={{ color: 'var(--accent)' }}>edge of the Void</span>
+              รวมปลั๊กอิน <span style={{ color: 'var(--accent)' }}>Bowranplugins</span>
             </h1>
             <p
               style={{
@@ -44,7 +43,7 @@ export function ImmersiveSpotlightLayout() {
                 lineHeight: 1.6,
               }}
             >
-              Transforming death mechanics and void boundaries on Paper 26.2 (Java 21) Minecraft servers.
+              เว็บแจกปลั๊กอินสำหรับเซิร์ฟเวอร์ Minecraft (Paper / Purpur) โหลดไฟล์ .jar ไปลงเซิร์ฟเวอร์ได้ทันที
             </p>
           </div>
 

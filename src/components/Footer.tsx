@@ -23,8 +23,7 @@ export function Footer() {
               Bowranplugins
             </div>
             <p className="footer-tagline">
-              Plugins for Minecraft servers.<br />
-              Built at the edge of the Void.
+              เว็บรวมปลั๊กอินสำหรับเซิร์ฟเวอร์ Minecraft
             </p>
           </div>
 
