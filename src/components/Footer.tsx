@@ -4,6 +4,8 @@ import React from 'react';
 import Link from 'next/link';
 import { Github } from 'lucide-react';
 
+import { PLUGINS } from '@/lib/plugins-data';
+
 export function Footer() {
   const year = new Date().getFullYear();
 
@@ -27,11 +29,13 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="footer-heading">Navigate</h4>
-            <Link href="/" className="footer-link">Home</Link>
-            <Link href="/plugins" className="footer-link">Plugins</Link>
-            <Link href="/plugins/afterdeath" className="footer-link">Afterdeath</Link>
-            <Link href="/plugins/voidscape" className="footer-link">Voidscape</Link>
+            <h4 className="footer-heading">Plugins</h4>
+            <Link href="/plugins" className="footer-link" style={{ fontWeight: 600 }}>All Plugins ({PLUGINS.length})</Link>
+            {PLUGINS.map((plugin) => (
+              <Link key={plugin.slug} href={`/plugins/${plugin.slug}`} className="footer-link">
+                {plugin.name}
+              </Link>
+            ))}
           </div>
 
           <div>

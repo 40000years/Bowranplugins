@@ -84,10 +84,11 @@ export const PLUGINS: PluginData[] = [
         version: '1.0.0',
         minecraftVersions: ['26.2'],
         releaseDate: '2024-09-03',
-        fileSize: '16 KB',
+        fileSize: '13 KB',
         downloadUrl: '/api/download?plugin=afterdeath',
         filename: 'afterdeath.jar',
         changelog: [
+          'Latest build update: Bytecode optimization & performance tuning (13 KB)',
           'Official release v1.0.0 for Paper 26.2',
           'Death Clock mechanic: 120s timer & coordinate tracking',
           'Native Geyser/Floodgate Bedrock & Java platform detection (/platform)',
@@ -193,17 +194,263 @@ export const PLUGINS: PluginData[] = [
       {
         version: '1.5.0',
         minecraftVersions: ['26.2'],
-        releaseDate: '2024-09-03',
-        fileSize: '75 KB',
+        releaseDate: '2024-09-07',
+        fileSize: '70 KB',
         downloadUrl: '/api/download?plugin=voidscape',
         filename: 'voidscape.jar',
         changelog: [
+          'Latest build update: Memory optimizations & boss entity tuning (70 KB)',
           'Voidscape v1.5.0 release for Paper 26.2',
           'Finite 3-Layer Void Dive system with Bedrock Portal trigger (Y <= -59)',
           'The Abyssal Warden titan boss encounter (5,000 HP, 4.5x scale, gravity pull)',
           'Giant Phantom, Giant Vex & Shadow Stalker entity scaling and custom AI',
           'Shadow Blade with Shadow Dash skill & Voidic Armor Set',
           '100% Client Lag Fix: Disabled weather/rain in void dimension',
+        ],
+      },
+    ],
+  },
+  {
+    id: 'advanced-combat',
+    name: 'AdvancedCombat',
+    slug: 'advanced-combat',
+    tagline: 'Bedrock & Vanilla Combat Parity for Paper & Geyser',
+    description:
+      'ระบบความสมดุลการต่อสู้ (Combat Parity) รองรับ Java & Bedrock Edition — ปลดล็อก Mace Smash, การฟันกวาด Sweep Attack ของดาบสำหรับ Bedrock และระบบ Axe Shield Stun.',
+    longDescription:
+      'AdvancedCombat bridges the gap between Java and Bedrock combat mechanics on Paper 26.2 servers with Geyser and Floodgate. Enjoy authentic Mace Smash attack physics, Java-style Sweep Attacks for Bedrock Edition players, and realistic Axe Shield Stun disable effects (5-second shield penalty). Designed with zero latency overhead and native Floodgate API hooks.',
+    accentColor: '#f43f5e',
+    accentGlow: 'rgba(244, 63, 94, 0.18)',
+    gradientFrom: '#2d0a14',
+    gradientTo: '#0d0d1a',
+    author: 'Bowran',
+    category: 'Combat & Mechanics',
+    tags: ['Combat Parity', 'Mace Smash', 'Sweep Attack', 'Axe Shield Stun', 'Geyser', 'PvP'],
+    platforms: ['Paper', 'Spigot', 'Purpur', 'Geyser / Floodgate'],
+    testedVersions: ['26.2'],
+    sourceUrl: 'https://github.com/40000years',
+    features: [
+      {
+        title: 'Mace Smash Attack Physics',
+        description: 'จำลองแรงกระแทกและดาเมจตกจากที่สูงของกระบอง Mace ให้สมบูรณ์แบบข้ามแพลตฟอร์มทั้ง Java และ Bedrock',
+      },
+      {
+        title: 'Bedrock Sweep Attack Parity',
+        description: 'ผู้เล่น Bedrock สามารถใช้การฟันกวาดคลื่นพลังดาบ (Sweep Attack) โดนมอนสเตอร์รอบข้างเหมือนฝั่ง Java 100%',
+      },
+      {
+        title: 'Axe Shield Stun Penalty',
+        description: 'เมื่อใช้ขวานโจมตีใส่เป้าหมายที่กำลังบล็อกด้วยโล่ โล่จะถูก Disable ปลดการป้องกันทันทีเป็นเวลา 5 วินาที พร้อมเสียงกระแทก',
+      },
+      {
+        title: 'Native Floodgate Hook',
+        description: 'ตรวจสอบประเภทผู้เล่น Java/Bedrock แบบไดนามิกผ่าน Floodgate API โดยไม่กระทบการต่อสู้ดั้งเดิมของฝั่ง Java',
+      },
+      {
+        title: 'Lightweight & Zero TPS Drop',
+        description: 'ขนาดไฟล์เพียง 15 KB ทำงานระดับ Event Listener น้ำหนักเบา ไม่สร้าง Packet ขยะบนเซิร์ฟเวอร์',
+      },
+    ],
+    commands: [
+      {
+        command: '/advancedcombat',
+        description: 'คำสั่งจัดการปลั๊กอิน AdvancedCombat (usage: /advancedcombat [reload])',
+        permission: 'advancedcombat.admin',
+      },
+    ],
+    permissions: [
+      {
+        node: 'advancedcombat.admin',
+        description: 'อนุญาตให้ใช้คำสั่งรีโหลดและจัดการปลั๊กอิน AdvancedCombat',
+        default: 'op',
+      },
+    ],
+    installation: [
+      'Download advanced-combat.jar from the download section below.',
+      'Place advanced-combat.jar into your server\'s /plugins/ folder.',
+      '(Optional) Ensure Floodgate is installed for Bedrock client detection.',
+      'Restart your Paper 26.2 server.',
+      'Configure options in /plugins/AdvancedCombat/config.yml if needed.',
+    ],
+    configuration:
+      'AdvancedCombat comes with an easy-to-use config.yml allowing server owners to customize stun duration, sweep damage multipliers, and sound effects.',
+    versions: [
+      {
+        version: '1.0.0',
+        minecraftVersions: ['26.2'],
+        releaseDate: '2024-09-07',
+        fileSize: '15 KB',
+        downloadUrl: '/api/download?plugin=advanced-combat',
+        filename: 'advanced-combat.jar',
+        changelog: [
+          'Official release v1.0.0 for Paper 26.2',
+          'Mace Smash fall-distance damage scaling & kinetic particles',
+          'Bedrock Sweep Attack listener & sweep particle FX',
+          'Axe Shield Stun: 5s cooldown disabling mechanic',
+          'Full Floodgate API integration',
+        ],
+      },
+    ],
+  },
+  {
+    id: 'anti-freecam',
+    name: 'AntiFreecam',
+    slug: 'anti-freecam',
+    tagline: 'Silent Container & Valuable Masking against Freecam',
+    description:
+      'ระบบปกป้องกล่องสมบัติและแร่มีค่าจากโมด Freecam & Spectator Hacks — บล็อกการมองเห็นและซ่อนไอเทมในหีบสไตล์ Paper Anti-Xray ไร้เสียงรบกวน.',
+    longDescription:
+      'AntiFreecam prevents illegitimate wall-peeking and container scanning by Freecam, Tweakeroo, and ReplayMod clients. Utilizing server-side Line-of-Sight (LoS) Raycasting and Silent Container Masking, contents of chests, shulker boxes, and rare ores remain completely concealed until players are within legitimate physical proximity and view.',
+    accentColor: '#10b981',
+    accentGlow: 'rgba(16, 185, 129, 0.18)',
+    gradientFrom: '#06281e',
+    gradientTo: '#080d14',
+    author: 'Bowran',
+    category: 'Security & Anti-Cheat',
+    tags: ['Anti-Freecam', 'Anti-Xray', 'Container Masking', 'Security', 'Paper 26.2'],
+    platforms: ['Paper', 'Purpur'],
+    testedVersions: ['26.2'],
+    sourceUrl: 'https://github.com/40000years',
+    features: [
+      {
+        title: 'Silent Container Masking',
+        description: 'กล่องและ Shulker Box จะไม่ส่ง Packet รายการไอเทมให้ Client จนกว่าจะคลิกเปิดกล่องจริง',
+      },
+      {
+        title: 'Line-of-Sight Raycasting',
+        description: 'คำนวณเส้นสายตาจากตำแหน่งหัวของตัวละครจริง หากมุมมอง Freecam ลอยทะลุกำแพง จะถูกบล็อกการเรนเดอร์',
+      },
+      {
+        title: 'Ghost Camera Prevention',
+        description: 'ตรวจจับแพ็กเก็ตพิกัดผิดปกติและตัดการเชื่อมโยงข้อมูลบล็อกที่เป็นความลับโดยอัตโนมัติ',
+      },
+      {
+        title: 'Asynchronous Thread Safety',
+        description: 'คำนวณเรย์แคสต์บน Asynchronous Worker Thread ไร้ผลกระทบต่อ TPS 20.0 แม้มีผู้เล่นออนไลน์จำนวนมาก',
+      },
+    ],
+    commands: [
+      {
+        command: '/antifreecam',
+        description: 'คำสั่งจัดการระบบ AntiFreecam (usage: /antifreecam [reload])',
+        permission: 'antifreecam.admin',
+      },
+    ],
+    permissions: [
+      {
+        node: 'antifreecam.admin',
+        description: 'สิทธิ์ผู้ดูแลระบบสำหรับคำสั่งรีโหลดและตั้งค่า AntiFreecam',
+        default: 'op',
+      },
+    ],
+    installation: [
+      'Download anti-freecam.jar from the download section below.',
+      'Place anti-freecam.jar into your server\'s /plugins/ directory.',
+      'Restart your Paper/Purpur 26.2 server.',
+      'No extra configuration required — works silently out of the box.',
+    ],
+    configuration:
+      'Configuration options allow administrators to tune raycast tolerance, masked block types, and log levels in /plugins/AntiFreecam/config.yml.',
+    versions: [
+      {
+        version: '1.0.0',
+        minecraftVersions: ['26.2'],
+        releaseDate: '2024-09-07',
+        fileSize: '12 KB',
+        downloadUrl: '/api/download?plugin=anti-freecam',
+        filename: 'anti-freecam.jar',
+        changelog: [
+          'Official release v1.0.0 for Paper 26.2',
+          'Silent container packet withholding engine',
+          'Line-of-sight raycasting anti-wallpeek algorithm',
+          'Asynchronous multi-threaded verification',
+        ],
+      },
+    ],
+  },
+  {
+    id: 'nightvision-toggle',
+    name: 'NightVisionToggle',
+    slug: 'nightvision-toggle',
+    tagline: 'Infinite Night Vision Toggle with Persistent State',
+    description:
+      'คำสั่งเปิด-ปิดการมองเห็นในความมืดแบบไร้ขีดจำกัด (/nv, /nightvision) — คงสถานะความสว่างต่อเนื่องแม้ตาย ย้ายโลก หรือ Reconnect ประหยัดสเปก ไร้แสงกะพริบ.',
+    longDescription:
+      'NightVisionToggle gives server players and builders smooth, unlimited night vision with persistent state tracking. Unlike standard potion commands that expire on death or world transitions, NightVisionToggle remembers each player\'s preference across sessions and respawns, completely eliminating visual flicker and server tick overhead.',
+    accentColor: '#f59e0b',
+    accentGlow: 'rgba(245, 158, 11, 0.18)',
+    gradientFrom: '#291b05',
+    gradientTo: '#0b0d14',
+    author: 'Bowran',
+    category: 'Quality of Life',
+    tags: ['Night Vision', 'QoL', 'Commands', 'Builders', 'Utility'],
+    platforms: ['Paper', 'Spigot', 'Purpur'],
+    testedVersions: ['26.2'],
+    sourceUrl: 'https://github.com/40000years',
+    features: [
+      {
+        title: 'Persistent State Retention',
+        description: 'จดจำสถานะเปิด/ปิดของผู้เล่นไว้ในฐานข้อมูล ปลั๊กอินจะคืนสถานะให้ทันทีหลังเกิดใหม่หรือย้ายเซิร์ฟเวอร์',
+      },
+      {
+        title: 'Zero Flicker Transition',
+        description: 'ปรับใช้ PotionEffect Ambient แบบไร้อนุภาคกวนสายตา ไร้อาการภาพกะพริบตอนเอฟเฟกต์ใกล้หมด',
+      },
+      {
+        title: 'Intuitive Command Aliases',
+        description: 'รองรับคำสั่งรวดเร็ว /nv, /nightvision พร้อมซับคอมมานด์ on, off, toggle, status',
+      },
+      {
+        title: 'Paper 26.2 Native API',
+        description: 'ขนาดไฟล์เพียง 11 KB รันบน Paper API รุ่นล่าสุด ใช้ CPU ต่ำกว่า 0.001% ของเซิร์ฟเวอร์',
+      },
+    ],
+    commands: [
+      {
+        command: '/nv',
+        description: 'เปิดหรือปิดการมองเห็นในความมืด (usage: /nv [on|off|toggle|status|reload])',
+        permission: 'nightvision.use',
+      },
+      {
+        command: '/nightvision',
+        description: 'คำสั่งเต็มสำหรับเปิดหรือปิด Night Vision (alias ของ /nv)',
+        permission: 'nightvision.use',
+      },
+    ],
+    permissions: [
+      {
+        node: 'nightvision.use',
+        description: 'อนุญาตให้ผู้เล่นเปิดหรือปิด Night Vision ของตนเอง',
+        default: 'true',
+      },
+      {
+        node: 'nightvision.admin',
+        description: 'อนุญาตให้ใช้คำสั่งรีโหลดคอนฟิกของปลั๊กอิน NightVisionToggle',
+        default: 'op',
+      },
+    ],
+    installation: [
+      'Download nightvision-toggle.jar from the download section below.',
+      'Place nightvision-toggle.jar into your server\'s /plugins/ folder.',
+      'Restart your Paper 26.2 server.',
+      'Grant the nightvision.use permission to player groups.',
+      'Players can now type /nv to toggle night vision freely.',
+    ],
+    configuration:
+      'NightVisionToggle creates config.yml with configurable messages, default states, particle visibility, and sound toggles.',
+    versions: [
+      {
+        version: '1.0.0',
+        minecraftVersions: ['26.2'],
+        releaseDate: '2024-09-07',
+        fileSize: '11 KB',
+        downloadUrl: '/api/download?plugin=nightvision-toggle',
+        filename: 'nightvision-toggle.jar',
+        changelog: [
+          'Official release v1.0.0 for Paper 26.2',
+          'Persistent player night vision tracking across deaths & relogs',
+          'Subcommands: /nv [on|off|toggle|status|reload]',
+          'Zero-particle ambient night vision effect',
         ],
       },
     ],

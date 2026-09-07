@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Skull, Orbit, Layers, Box, Terminal, Sparkles } from 'lucide-react';
+import { Skull, Orbit, Layers, Box, Terminal, Sparkles, Swords, ShieldAlert, Eye } from 'lucide-react';
 
 interface PluginIconProps {
   slug: string;
@@ -26,6 +26,12 @@ export function PluginIcon({ slug, className = '', size = '1.75rem', color }: Pl
       return <Skull {...iconProps} />;
     case 'voidscape':
       return <Orbit {...iconProps} />;
+    case 'advanced-combat':
+      return <Swords {...iconProps} />;
+    case 'anti-freecam':
+      return <ShieldAlert {...iconProps} />;
+    case 'nightvision-toggle':
+      return <Eye {...iconProps} />;
     default:
       return <Box {...iconProps} />;
   }

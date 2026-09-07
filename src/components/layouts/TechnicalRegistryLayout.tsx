@@ -24,7 +24,7 @@ export function TechnicalRegistryLayout() {
             <span className="registry-coord">INDEX: 0x40000Y</span>
             <span className="registry-coord">SERVER: PAPER/PURPUR</span>
             <span className="registry-coord">API: PAPER 26.2</span>
-            <span style={{ color: 'var(--success)' }}>● 2 RELEASES STABLE</span>
+            <span style={{ color: 'var(--success)' }}>● {PLUGINS.length} RELEASES STABLE</span>
           </div>
 
           <h1 style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 800, letterSpacing: '-0.02em', marginBottom: '1rem', color: 'var(--text-primary)' }}>
