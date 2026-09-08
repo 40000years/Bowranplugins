@@ -1,30 +1,5 @@
-'use client';
-
-import React from 'react';
-import { ThemeProvider } from '@/components/ThemeProvider';
-import { VoidBackground } from '@/components/VoidBackground';
-import { Navbar } from '@/components/Navbar';
-import { ImmersiveSpotlightLayout } from '@/components/layouts/ImmersiveSpotlightLayout';
-import { TelemetryMarquee } from '@/components/TelemetryMarquee';
-import { BentoGrid } from '@/components/BentoGrid';
-import { Footer } from '@/components/Footer';
+import { PluginLibrary } from '@/components/PluginLibrary';
 
 export default function HomePage() {
-  return (
-    <ThemeProvider>
-      <VoidBackground />
-      <Navbar />
-      <main style={{ position: 'relative', zIndex: 2, minHeight: '85vh' }}>
-        {/* Immersive Auto-Slide Spotlight Hero */}
-        <ImmersiveSpotlightLayout />
-
-        {/* Auto-scrolling Telemetry Ticker Marquee */}
-        <TelemetryMarquee />
-
-        {/* Supporting Features Grid */}
-        <BentoGrid />
-      </main>
-      <Footer />
-    </ThemeProvider>
-  );
+  return <PluginLibrary />;
 }

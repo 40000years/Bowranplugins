@@ -1,5 +1,8 @@
 import type { Metadata } from 'next';
 import './globals.css';
+import { ThemeProvider } from '@/components/ThemeProvider';
+import { Navbar } from '@/components/Navbar';
+import { Footer } from '@/components/Footer';
 
 export const metadata: Metadata = {
   title: 'Bowranplugins — รวมปลั๊กอิน Minecraft (Paper / Spigot)',
@@ -24,7 +27,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" data-theme="dark" suppressHydrationWarning>
+    <html lang="th" data-theme="dark" suppressHydrationWarning>
       <head>
         {/* Prevent flash of wrong theme */}
         <script
@@ -42,7 +45,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="noise-overlay">{children}</body>
+      <body><ThemeProvider><Navbar />{children}<Footer /></ThemeProvider></body>
     </html>
   );
 }

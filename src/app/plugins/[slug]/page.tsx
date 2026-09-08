@@ -1,341 +1,42 @@
-'use client';
-
-import React, { useState } from 'react';
+import type { Metadata } from 'next';
 import Link from 'next/link';
-import { useParams } from 'next/navigation';
-import { ThemeProvider } from '@/components/ThemeProvider';
-import { VoidBackground } from '@/components/VoidBackground';
-import { Navbar } from '@/components/Navbar';
-import { Footer } from '@/components/Footer';
-import { ScrollReveal } from '@/components/ScrollReveal';
+import Image from 'next/image';
+import { notFound } from 'next/navigation';
+import { ArrowLeft, ArrowUpRight, Check, FileArchive, Github, Terminal } from 'lucide-react';
+import { PLUGINS, getPluginBySlug } from '@/lib/plugins-data';
+import { pluginCategory, pluginTone } from '@/lib/plugin-presentation';
 import { PluginIcon } from '@/components/PluginIcon';
-import { getPluginBySlug } from '@/lib/plugins-data';
-import {
-  ArrowLeft,
-  Download,
-  Github,
-  BookOpen,
-  ExternalLink,
-  CheckCircle2,
-  ChevronRight,
-} from 'lucide-react';
+import { DownloadButton } from '@/components/DownloadButton';
+import { InGameMechanicSimulator } from '@/components/InGameMechanicSimulator';
 
-export default function PluginDetailPage() {
-  const params = useParams();
-  const slug = params.slug as string;
-  const plugin = getPluginBySlug(slug);
-  const [downloading, setDownloading] = useState(false);
-  const [downloadDone, setDownloadDone] = useState(false);
+export function generateStaticParams() {
+  return PLUGINS.map(plugin => ({ slug: plugin.slug }));
+}
 
-  if (!plugin) {
-    return (
-      <ThemeProvider>
-        <VoidBackground />
-        <Navbar />
-        <main style={{ position: 'relative', zIndex: 2 }}>
-          <div className="container" style={{ paddingTop: '8rem', textAlign: 'center', minHeight: '60vh' }}>
-            <h1 className="text-heading" style={{ marginBottom: '1rem' }}>Plugin not found</h1>
-            <p className="text-subheading" style={{ marginBottom: '2rem' }}>
-              The plugin you&apos;re looking for doesn&apos;t exist or has been removed.
-            </p>
-            <Link href="/" className="btn btn-secondary">
-              <ArrowLeft style={{ width: '1rem', height: '1rem' }} />
-              Back to Home
-            </Link>
-          </div>
-        </main>
-        <Footer />
-      </ThemeProvider>
-    );
-  }
+export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
+  const plugin = getPluginBySlug(params.slug);
+  return { title: plugin ? `${plugin.name} | Bowranplugins` : 'Plugin not found | Bowranplugins', description: plugin?.description };
+}
 
-  const latestVersion = plugin.versions[0];
-
-  const handleDownload = () => {
-    setDownloading(true);
-    setDownloadDone(false);
-
-    const link = document.createElement('a');
-    link.href = latestVersion.downloadUrl;
-    link.download = latestVersion.filename;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-
-    setTimeout(() => {
-      setDownloading(false);
-      setDownloadDone(true);
-      setTimeout(() => setDownloadDone(false), 5000);
-    }, 800);
-  };
-
-  return (
-    <ThemeProvider>
-      <VoidBackground />
-      <Navbar />
-      <main style={{ position: 'relative', zIndex: 2 }}>
-        {/* Hero */}
-        <section className="detail-hero">
-          <div
-            className="detail-hero-gradient"
-            style={{
-              background: `linear-gradient(180deg, ${plugin.gradientFrom}, transparent)`,
-            }}
-          />
-          <div className="container detail-hero-content">
-            <ScrollReveal>
-              <Link href="/" className="detail-back">
-                <ArrowLeft style={{ width: '0.875rem', height: '0.875rem' }} />
-                All Plugins
-              </Link>
-            </ScrollReveal>
-
-            <ScrollReveal delay={1}>
-              <div
-                className="detail-icon"
-                style={{ boxShadow: `0 0 32px ${plugin.accentGlow}` }}
-              >
-                <PluginIcon slug={plugin.slug} color={plugin.accentColor} size="2.25rem" />
-              </div>
-            </ScrollReveal>
-
-            <ScrollReveal delay={2}>
-              <h1 className="detail-title">{plugin.name}</h1>
-              <p className="detail-tagline">&ldquo;{plugin.tagline}&rdquo;</p>
-            </ScrollReveal>
-
-            <ScrollReveal delay={3}>
-              <div className="detail-meta">
-                {latestVersion && (
-                  <span className="badge badge-accent">v{latestVersion.version}</span>
-                )}
-                {plugin.testedVersions.map((v) => (
-                  <span key={v} className="badge">Paper {v}</span>
-                ))}
-                <span className="badge">{plugin.category}</span>
-                {plugin.platforms.map((p) => (
-                  <span key={p} className="badge">{p}</span>
-                ))}
-                <span className="badge">by {plugin.author}</span>
-              </div>
-            </ScrollReveal>
-          </div>
-        </section>
-
-        <div className="container">
-          {/* Download Section */}
-          <ScrollReveal>
-            <section className="detail-section" id="download">
-              <h2 className="detail-section-title">Download</h2>
-              <div className="download-card">
-                <div className="download-info">
-                  <div>
-                    <p className="download-stat-label">Latest Release</p>
-                    <p className="download-stat-value">v{latestVersion.version}</p>
-                  </div>
-                  <div>
-                    <p className="download-stat-label">Paper API</p>
-                    <p className="download-stat-value">{latestVersion.minecraftVersions.join(', ')}</p>
-                  </div>
-                  <div>
-                    <p className="download-stat-label">File Size</p>
-                    <p className="download-stat-value">{latestVersion.fileSize}</p>
-                  </div>
-                </div>
-
-                <div className="download-actions">
-                  <button
-                    onClick={handleDownload}
-                    disabled={downloading}
-                    className="btn btn-primary"
-                    style={{
-                      boxShadow: `0 4px 20px ${plugin.accentGlow}`,
-                    }}
-                  >
-                    <Download style={{ width: '1rem', height: '1rem' }} />
-                    {downloading ? 'Preparing…' : 'Download Plugin'}
-                  </button>
-
-                  {plugin.sourceUrl && (
-                    <a
-                      href={plugin.sourceUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="btn btn-secondary"
-                    >
-                      <Github style={{ width: '1rem', height: '1rem' }} />
-                      Source Code
-                    </a>
-                  )}
-                </div>
-
-                {downloadDone && (
-                  <div
-                    style={{
-                      marginTop: '1rem',
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '0.5rem',
-                      fontSize: '0.8125rem',
-                      color: 'var(--success)',
-                      fontWeight: 500,
-                    }}
-                  >
-                    <CheckCircle2 style={{ width: '1rem', height: '1rem' }} />
-                    Download started. Check your browser downloads.
-                  </div>
-                )}
-              </div>
-            </section>
-          </ScrollReveal>
-
-          {/* Description */}
-          <ScrollReveal>
-            <section className="detail-section">
-              <h2 className="detail-section-title">About</h2>
-              <p style={{
-                fontSize: '0.9375rem',
-                color: 'var(--text-secondary)',
-                lineHeight: 1.7,
-                maxWidth: '720px',
-              }}>
-                {plugin.longDescription}
-              </p>
-            </section>
-          </ScrollReveal>
-
-          {/* Features */}
-          <ScrollReveal>
-            <section className="detail-section">
-              <h2 className="detail-section-title">Features</h2>
-              <div className="feature-grid">
-                {plugin.features.map((feature, i) => (
-                  <div key={i} className="feature-item">
-                    <h3 className="feature-item-title">{feature.title}</h3>
-                    <p className="feature-item-desc">{feature.description}</p>
-                  </div>
-                ))}
-              </div>
-            </section>
-          </ScrollReveal>
-
-          {/* Installation */}
-          <ScrollReveal>
-            <section className="detail-section" id="documentation">
-              <h2 className="detail-section-title">Installation</h2>
-              <ol className="install-steps">
-                {plugin.installation.map((step, i) => (
-                  <li key={i} className="install-step">{step}</li>
-                ))}
-              </ol>
-            </section>
-          </ScrollReveal>
-
-          {/* Commands */}
-          {plugin.commands.length > 0 && (
-            <ScrollReveal>
-              <section className="detail-section">
-                <h2 className="detail-section-title">Commands</h2>
-                <div style={{ overflowX: 'auto' }}>
-                  <table className="command-table">
-                    <thead>
-                      <tr>
-                        <th>Command</th>
-                        <th>Description</th>
-                        <th>Permission</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {plugin.commands.map((cmd, i) => (
-                        <tr key={i}>
-                          <td><code>{cmd.command}</code></td>
-                          <td>{cmd.description}</td>
-                          <td><code>{cmd.permission || '—'}</code></td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-              </section>
-            </ScrollReveal>
-          )}
-
-          {/* Permissions */}
-          {plugin.permissions.length > 0 && (
-            <ScrollReveal>
-              <section className="detail-section">
-                <h2 className="detail-section-title">Permissions</h2>
-                <div style={{ overflowX: 'auto' }}>
-                  <table className="command-table">
-                    <thead>
-                      <tr>
-                        <th>Permission Node</th>
-                        <th>Description</th>
-                        <th>Default</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {plugin.permissions.map((perm, i) => (
-                        <tr key={i}>
-                          <td><code>{perm.node}</code></td>
-                          <td>{perm.description}</td>
-                          <td>{perm.default}</td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-              </section>
-            </ScrollReveal>
-          )}
-
-          {/* Configuration */}
-          {plugin.configuration && (
-            <ScrollReveal>
-              <section className="detail-section">
-                <h2 className="detail-section-title">Configuration</h2>
-                <p style={{
-                  fontSize: '0.875rem',
-                  color: 'var(--text-secondary)',
-                  lineHeight: 1.6,
-                }}>
-                  {plugin.configuration}
-                </p>
-              </section>
-            </ScrollReveal>
-          )}
-
-          {/* Changelog */}
-          {latestVersion.changelog.length > 0 && (
-            <ScrollReveal>
-              <section className="detail-section">
-                <h2 className="detail-section-title">
-                  Changelog — v{latestVersion.version}
-                </h2>
-                <ul style={{ listStyle: 'none', padding: 0 }}>
-                  {latestVersion.changelog.map((entry, i) => (
-                    <li
-                      key={i}
-                      style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '0.75rem',
-                        padding: '0.5rem 0',
-                        fontSize: '0.875rem',
-                        color: 'var(--text-secondary)',
-                      }}
-                    >
-                      <ChevronRight style={{ width: '0.75rem', height: '0.75rem', color: 'var(--accent)', flexShrink: 0 }} />
-                      {entry}
-                    </li>
-                  ))}
-                </ul>
-              </section>
-            </ScrollReveal>
-          )}
-        </div>
-      </main>
-      <Footer />
-    </ThemeProvider>
-  );
+export default function PluginDetailPage({ params }: { params: { slug: string } }) {
+  const plugin = getPluginBySlug(params.slug);
+  if (!plugin) notFound();
+  const latest = plugin.versions[0];
+  return <main id="main" className="detail-page container">
+    <Link href="/plugins" className="back-link"><ArrowLeft size={15} /> Plugin directory</Link>
+    <header className="detail-heading">
+      <div className={`plugin-emblem detail-emblem tone-${pluginTone[plugin.slug]}`}><PluginIcon slug={plugin.slug} color="currentColor" size="2rem" /></div>
+      <div><p className="eyebrow">{pluginCategory[plugin.slug]} / BY {plugin.author.toUpperCase()}</p><h1>{plugin.name}<span className="title-dot">.</span></h1><p>{plugin.tagline}</p></div>
+    </header>
+    <nav className="detail-navigation" aria-label="หัวข้อรายละเอียด"><a href="#overview">Overview</a><a href="#installation">Installation</a><a href="#commands">Commands</a><a href="#releases">Releases <span>{plugin.versions.length}</span></a></nav>
+    <div className="detail-layout"><div className="detail-content">
+      {plugin.slug === 'voidscape' && <figure className="detail-art"><Image src="/voidscape-world.jpg" alt="ภาพคอนเซ็ปต์เกาะลอยฟ้าและประตูมิติ Voidscape" width={1774} height={887} priority sizes="(max-width: 760px) 100vw, 760px" /><figcaption>VOIDSCAPE / DIMENSION CONCEPT ART</figcaption></figure>}
+      <section id="overview" className="document-section"><p className="eyebrow">THE PLUGIN</p><h2>Built for your world.</h2><p className="body-copy">{plugin.longDescription}</p><div className="feature-list">{plugin.features.map((feature, index) => <div key={feature.title}><span className="feature-number">{String(index + 1).padStart(2, '0')}</span><h3>{feature.title}</h3><p>{feature.description}</p></div>)}</div></section>
+      <details className="demo-disclosure"><summary><span><Terminal size={17} /> ทดลองกลไกปลั๊กอิน</span><span className="demo-label">INTERACTIVE DEMO</span></summary><InGameMechanicSimulator slug={plugin.slug} accentColor="var(--accent)" /></details>
+      <section id="installation" className="document-section"><p className="eyebrow">GET STARTED</p><h2>Installation</h2><ol className="detail-steps">{plugin.installation.map((step, index) => <li key={step}><span>{String(index + 1).padStart(2, '0')}</span><p>{step}</p></li>)}</ol>{plugin.configuration && <div className="configuration"><h3>Configuration</h3><p>{plugin.configuration}</p></div>}</section>
+      <section id="commands" className="document-section"><p className="eyebrow">SERVER REFERENCE</p><h2>Commands & permissions</h2><div className="table-scroll" tabIndex={0} role="region" aria-label="ตารางคำสั่ง เลื่อนแนวนอนได้"><table className="reference-table"><caption className="sr-only">คำสั่ง {plugin.name}</caption><thead><tr><th scope="col">Command</th><th scope="col">Description / permission</th></tr></thead><tbody>{plugin.commands.map(command => <tr key={command.command}><td><code>{command.command}</code></td><td>{command.description}<small>{command.permission}</small></td></tr>)}</tbody></table></div><h3 className="permissions-title">Permission nodes</h3><div className="table-scroll" tabIndex={0} role="region" aria-label="ตารางสิทธิ์ เลื่อนแนวนอนได้"><table className="reference-table"><caption className="sr-only">สิทธิ์ {plugin.name}</caption><thead><tr><th scope="col">Permission</th><th scope="col">Description</th><th scope="col">Default</th></tr></thead><tbody>{plugin.permissions.map(permission => <tr key={permission.node}><td><code>{permission.node}</code></td><td>{permission.description}</td><td><code>{permission.default}</code></td></tr>)}</tbody></table></div></section>
+      <section id="releases" className="document-section"><p className="eyebrow">RELEASE HISTORY</p><h2>Changelog</h2>{plugin.versions.map((version, index) => <div className="release-entry" key={version.version}><div className="release-heading"><h3>v{version.version}</h3>{index === 0 && <span className="latest-label">Latest release</span>}<time dateTime={version.releaseDate}>{new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' }).format(new Date(version.releaseDate))}</time></div><ul>{version.changelog.map(change => <li key={change}><Check size={15} /><span>{change}</span></li>)}</ul></div>)}</section>
+    </div>
+    <aside className="release-sidebar"><div className="release-panel"><p className="eyebrow"><span className="status-dot" /> LATEST RELEASE</p><div className="release-version"><h2>v{latest.version}</h2><FileArchive size={24} /></div><p className="release-filename">{latest.filename}</p><DownloadButton version={latest} name={plugin.name} /><p className="download-note">Direct download · ไม่ต้องสมัครสมาชิก</p><dl className="release-facts"><div><dt>File size</dt><dd>{latest.fileSize}</dd></div><div><dt>Listed version</dt><dd>{latest.minecraftVersions.join(', ')}</dd></div><div><dt>Developer</dt><dd>{plugin.author}</dd></div><div><dt>Format</dt><dd>Java archive (.jar)</dd></div></dl><div className="compatibility"><h3>Server platforms</h3><div>{plugin.platforms.map(platform => <span key={platform}>{platform}</span>)}</div><p>ตรวจสอบเวอร์ชันและส่วนเสริมที่ต้องใช้<br />ตามขั้นตอนการติดตั้งด้านซ้าย</p></div>{plugin.sourceUrl && <a className="source-link" href={plugin.sourceUrl} target="_blank" rel="noopener noreferrer"><Github size={17} /> Developer on GitHub <ArrowUpRight size={15} /></a>}</div><p className="sidebar-note">เอกสาร คำสั่ง และข้อมูลเวอร์ชัน<br />จากผู้พัฒนาปลั๊กอิน</p></aside></div>
+  </main>;
 }
