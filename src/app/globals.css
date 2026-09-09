@@ -17,6 +17,7 @@
   --rose: #dda6a7;
   --amber: #dfbd80;
   --mint: #92c9b0;
+  --purple: #c4b5fd;
   --font-sans: 'Inter', 'Noto Sans Thai', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: 'IBM Plex Mono', monospace;
   --bg-primary: var(--bg);
@@ -40,6 +41,7 @@
   --rose: #9a454e;
   --amber: #845e22;
   --mint: #337054;
+  --purple: #6d28d9;
 }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: 95px; }
@@ -147,6 +149,7 @@ option { background: var(--surface); color: var(--text); }
 .tone-rose { color: var(--rose); }
 .tone-amber { color: var(--amber); }
 .tone-mint { color: var(--mint); }
+.tone-purple { color: var(--purple); }
 .plugin-title-line { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
 .plugin-title-line h3 { font-size: 18px; font-weight: 550; overflow-wrap: anywhere; }
 .plugin-title-line a:hover { color: var(--accent); }

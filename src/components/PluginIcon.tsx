@@ -32,6 +32,8 @@ export function PluginIcon({ slug, className = '', size = '1.75rem', color }: Pl
       return <ShieldAlert {...iconProps} />;
     case 'nightvision-toggle':
       return <Eye {...iconProps} />;
+    case 'advance-magic':
+      return <Sparkles {...iconProps} />;
     default:
       return <Box {...iconProps} />;
   }

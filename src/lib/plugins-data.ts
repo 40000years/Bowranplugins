@@ -458,6 +458,108 @@ export const PLUGINS: PluginData[] = [
       },
     ],
   },
+  {
+    id: 'advance-magic',
+    name: 'Advance Magic',
+    slug: 'advance-magic',
+    tagline: '15 คทาเวทมนตร์ พร้อมระบบมานาและคูลดาวน์ (Java & Bedrock)',
+    description:
+      'ปลั๊กอินเวทมนตร์ 15 คาถา พร้อมคทา 15 รูปแบบ ระบบมานา 100 หน่วย คูลดาวน์รายบุคคล และ Resource Pack สำหรับ Java และ Geyser Bedrock',
+    longDescription:
+      'ปลั๊กอินระบบเวทมนตร์ 15 คาถาพร้อมคทาเฉพาะตัว สร้างได้ด้วยสูตรคราฟต์ 3x3 ในโหมด Survival ระบบมานา 100 หน่วย ฟื้นฟู 2 หน่วยต่อวินาที คูลดาวน์รายบุคคลแยกตามคาถา ปลอดภัยต่อโลกและสิ่งก่อสร้าง (Anti-Griefing) รองรับทั้ง Java และ Bedrock ผ่าน Geyser มี Resource Pack เท็กซ์เจอร์และโมเดล 32x32 พิกเซลในตัว',
+    accentColor: '#a855f7',
+    accentGlow: 'rgba(168, 85, 247, 0.15)',
+    gradientFrom: '#1e1035',
+    gradientTo: '#0b0814',
+    author: 'Bowran',
+    category: 'Gameplay',
+    tags: ['Magic', 'Wands', 'Mana System', 'Spells', 'PVP & PVE', 'Crossplay', 'Geyser'],
+    platforms: ['Paper 26.2+', 'Java 21+', 'Geyser / Floodgate'],
+    testedVersions: ['26.2'],
+    sourceUrl: 'https://github.com/40000years/Afterdeath',
+    features: [
+      {
+        title: '15 คทาเวทมนตร์เฉพาะตัว',
+        description: 'มีคทา 15 รูปแบบ เช่น Lightning Strike, Frost Nova, Shadow Step, Meteor Strike, Time Dilation ฯลฯ',
+      },
+      {
+        title: 'ระบบมานาและคูลดาวน์ถาวร',
+        description: 'มานา 100 หน่วย รีเจน 2 หน่วย/วินาที คูลดาวน์แยกรายสกิลและบันทึกลง PDC ไม่หายแม้ตายหรือรีสตาร์ทเซิร์ฟเวอร์',
+      },
+      {
+        title: 'ปลอดภัยต่อแมปและสิ่งก่อสร้าง (Anti-Griefing)',
+        description: 'สกิลระเบิด (Meteor, Wither) และสายฟ้าไม่ทำลายบล็อกในโลก Earth Wall ใช้เอนทิตีชั่วคราวและลบอัตโนมัติ',
+      },
+      {
+        title: 'ระบบทีมและพันธมิตร',
+        description: 'เวทบัฟและเวทโจมตีแยกมิตร-ศัตรูอย่างแม่นยำผ่านระบบ Scoreboard Team, สัตว์เลี้ยง (Tamed) และกฎ PvP ของโลก',
+      },
+      {
+        title: 'รองรับ Java และ Bedrock เต็มรูปแบบ',
+        description: 'มี Resource Pack แยกทั้ง Java 1.21.2+ และ Bedrock (.mcpack) พร้อม Geyser Custom Mappings v2',
+      },
+    ],
+    commands: [
+      {
+        command: '/magic list',
+        description: 'แสดงรายชื่อคาถาทั้งหมด ค่ามานา คูลดาวน์ และไอเทม Core สำหรับคราฟต์',
+      },
+      {
+        command: '/magic mana',
+        description: 'ตรวจสอบปริมาณมานาคงเหลือบนแถบ Action Bar',
+      },
+      {
+        command: '/magic give <player> <spell>',
+        description: 'มอบคทาเวทมนตร์ให้กับผู้เล่นที่ระบุ (สำหรับผู้ดูแลระบบ)',
+        permission: 'advance-magic.admin',
+      },
+    ],
+    permissions: [
+      {
+        node: 'advance-magic.cast',
+        description: 'อนุญาตให้ผู้เล่นใช้คทาร่ายเวทมนตร์',
+        default: 'true',
+      },
+      {
+        node: 'advance-magic.craft',
+        description: 'อนุญาตให้คราฟต์คทาเวทมนตร์ในโต๊ะคราฟต์ 3x3',
+        default: 'true',
+      },
+      {
+        node: 'advance-magic.admin',
+        description: 'สิทธิ์ผู้ดูแลระบบสำหรับคำสั่ง /magic give',
+        default: 'op',
+      },
+    ],
+    installation: [
+      'ดาวน์โหลดไฟล์ advance-magic.jar จากปุ่มด้านล่าง',
+      'นำไฟล์ไปวางในโฟลเดอร์ /plugins/ ของเซิร์ฟเวอร์ Paper 26.2',
+      'รีสตาร์ทเซิร์ฟเวอร์เพื่อเริ่มใช้งานคำสั่งและสูตรคราฟต์',
+      'ติดตั้ง advance-magic-bedrock.mcpack และ geyser-mappings.json ใน Geyser สำหรับผู้เล่น Bedrock',
+      'ติดตั้ง advance-magic-java.zip หรือใส่ URL ใน config.yml สำหรับผู้เล่น Java',
+    ],
+    configuration:
+      'ปรับแต่งค่าความเสียหาย, เปิด/ปิดไฟจากอุกกาบาต, และการตั้งค่า Resource Pack ได้ที่ /plugins/advance-magic/config.yml',
+    versions: [
+      {
+        version: '1.0.0',
+        minecraftVersions: ['26.2'],
+        releaseDate: '2026-09-09',
+        fileSize: '60 KB',
+        downloadUrl: '/api/download?plugin=advance-magic',
+        filename: 'advance-magic.jar',
+        changelog: [
+          'เวอร์ชันแรก 1.0.0 รองรับ Paper 26.2 และ Java 21+',
+          '15 คทาเวทมนตร์พร้อมสูตรคราฟต์ 3x3 (ดาวเนเธอร์ 8 ชิ้น + Core)',
+          'ระบบมานา 100 หน่วย และคูลดาวน์รายสกิล บันทึกสถานะลง PDC ถาวร',
+          'โดมหน่วงเวลา (Time Dilation) ชะลอกระสุนและลูกธนูเหลือความเร็ว 20%',
+          'กำแพงหินลอย (Earth Wall) สกัดกั้น Projectile กลางอากาศโดยไม่ทำลายบล็อกในโลก',
+          'ระบบล่องหนสมบูรณ์ (Invisibility Shroud) ซ่อนชุดเกราะ ไอเทม และหลุดจากเป้าหมายมอนสเตอร์',
+          'รวม Resource Pack สำหรับ Java และ Bedrock (Geyser Mapping v2) ในตัว',
+        ],
+      },
+    ],
+  },
 ];
 
 export function getPluginBySlug(slug: string): PluginData | undefined {

@@ -17,6 +17,8 @@ export const metadata: Metadata = {
     'advancedcombat',
     'antifreecam',
     'nightvision',
+    'advancemagic',
+    'advance-magic',
     'paper 26.2',
   ],
 };
