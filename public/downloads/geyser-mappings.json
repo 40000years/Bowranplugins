@@ -1,0 +1,105 @@
+{
+  "format_version": 2,
+  "items": {
+    "minecraft:netherite_pickaxe": [
+      {
+        "type": "legacy",
+        "custom_model_data": 8101,
+        "bedrock_identifier": "voidscape:rift_pickaxe",
+        "display_name": "Rift Excavator",
+        "bedrock_options": {
+          "icon": "voidscape.rift_pickaxe",
+          "allow_offhand": true,
+          "display_handheld": true
+        }
+      }
+    ],
+    "minecraft:bow": [
+      {
+        "type": "legacy",
+        "custom_model_data": 8102,
+        "bedrock_identifier": "voidscape:nova_bow",
+        "display_name": "Nova Bow",
+        "bedrock_options": {
+          "icon": "voidscape.nova_bow",
+          "allow_offhand": true,
+          "display_handheld": true
+        }
+      },
+      {
+        "type": "legacy",
+        "custom_model_data": 8103,
+        "bedrock_identifier": "voidscape:storm_bow",
+        "display_name": "Storm Verdict",
+        "bedrock_options": {
+          "icon": "voidscape.storm_bow",
+          "allow_offhand": true,
+          "display_handheld": true
+        }
+      }
+    ],
+    "minecraft:netherite_sword": [
+      {
+        "type": "legacy",
+        "custom_model_data": 8104,
+        "bedrock_identifier": "voidscape:rift_blade",
+        "display_name": "Rift Blade",
+        "bedrock_options": {
+          "icon": "voidscape.rift_blade",
+          "allow_offhand": true,
+          "display_handheld": true
+        }
+      }
+    ],
+    "minecraft:shield": [
+      {
+        "type": "legacy",
+        "custom_model_data": 8105,
+        "bedrock_identifier": "voidscape:eternal_aegis",
+        "display_name": "Eternal Aegis",
+        "bedrock_options": {
+          "icon": "voidscape.eternal_aegis",
+          "allow_offhand": true,
+          "display_handheld": true
+        }
+      }
+    ],
+    "minecraft:echo_shard": [
+      {
+        "type": "legacy",
+        "custom_model_data": 8106,
+        "bedrock_identifier": "voidscape:void_shard",
+        "display_name": "Ancient Void Shard",
+        "bedrock_options": {
+          "icon": "voidscape.void_shard",
+          "allow_offhand": true,
+          "display_handheld": true
+        }
+      }
+    ],
+    "minecraft:carved_pumpkin": [
+      {
+        "type": "legacy",
+        "custom_model_data": 8107,
+        "bedrock_identifier": "voidscape:hollow_mask",
+        "display_name": "Hollow Knight Mask",
+        "bedrock_options": {
+          "icon": "voidscape.hollow_mask",
+          "allow_offhand": true,
+          "display_handheld": false
+        }
+      },
+      {
+        "type": "legacy",
+        "custom_model_data": 8108,
+        "bedrock_identifier": "voidscape:captain_mask",
+        "display_name": "Hollow Captain Mask",
+        "bedrock_options": {
+          "icon": "voidscape.captain_mask",
+          "allow_offhand": true,
+          "display_handheld": false
+        }
+      }
+    ]
+  }
+}
