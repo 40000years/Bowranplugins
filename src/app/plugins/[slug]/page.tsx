@@ -74,17 +74,17 @@ export default function PluginDetailPage({
       </nav>
       <div className="detail-layout">
         <div className="detail-content">
-          {plugin.slug === "voidscape" && (
+          {(plugin.slug === "evergarden" || plugin.slug === "voidscape") && (
             <figure className="detail-art">
               <Image
                 src="/voidscape-world.jpg"
-                alt="ภาพคอนเซ็ปต์เกาะลอยฟ้าและประตูมิติ Voidscape"
+                alt="ภาพคอนเซ็ปต์สวนลอยฟ้าและประตูมิติ Evergarden"
                 width={1774}
                 height={887}
                 priority
                 sizes="(max-width: 760px) 100vw, 760px"
               />
-              <figcaption>VOIDSCAPE / DIMENSION CONCEPT ART</figcaption>
+              <figcaption>EVERGARDEN / DIMENSION CONCEPT ART</figcaption>
             </figure>
           )}
           {(plugin.slug === "afterdeath" ||

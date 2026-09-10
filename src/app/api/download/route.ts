@@ -13,7 +13,10 @@ export async function GET(request: NextRequest) {
   }
 
   const plugin = PLUGINS.find(
-    (p) => p.id.toLowerCase() === pluginId.toLowerCase() || p.slug.toLowerCase() === pluginId.toLowerCase()
+    (p) =>
+      p.id.toLowerCase() === pluginId.toLowerCase() ||
+      p.slug.toLowerCase() === pluginId.toLowerCase() ||
+      (pluginId.toLowerCase() === 'voidscape' && (p.id === 'evergarden' || p.slug === 'evergarden'))
   );
   if (!plugin) {
     return new NextResponse('Plugin not found', { status: 404 });

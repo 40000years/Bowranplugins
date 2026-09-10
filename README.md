@@ -1,6 +1,6 @@
 # Bowranplugins
 
-เว็บดาวน์โหลดปลั๊กอิน Minecraft ของ Bowran (Afterdeath, Voidscape ฯลฯ)
+เว็บดาวน์โหลดปลั๊กอิน Minecraft ของ Bowran (Afterdeath, Evergarden ฯลฯ)
 
 ## การติดตั้งและรัน
 

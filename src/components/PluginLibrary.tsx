@@ -13,7 +13,7 @@ export function PluginLibrary({ registry = false }: { registry?: boolean }) {
   const [query, setQuery] = useState('');
   const [category, setCategory] = useState<Category>('All plugins');
   const [sort, setSort] = useState('featured');
-  const featured = PLUGINS.find(plugin => plugin.slug === 'voidscape')!;
+  const featured = PLUGINS.find(plugin => plugin.slug === 'evergarden') || PLUGINS[0];
   const plugins = useMemo(() => {
     const filtered = PLUGINS.filter(plugin => (category === 'All plugins' || pluginCategory[plugin.slug] === category) && `${plugin.name} ${plugin.description} ${plugin.tags.join(' ')} ${plugin.platforms.join(' ')} ${pluginCategory[plugin.slug]}`.toLowerCase().includes(query.trim().toLowerCase()));
     return sort === 'name' ? filtered.sort((a, b) => a.name.localeCompare(b.name)) : filtered;
@@ -25,10 +25,10 @@ export function PluginLibrary({ registry = false }: { registry?: boolean }) {
       <div className="intro-aside"><p>ต่อเติมโลกของคุณ ให้เป็นมากกว่าเดิม<br /><span>ปลั๊กอิน Minecraft สำหรับคนสร้างเซิร์ฟเวอร์</span></p><a href="#library" className="text-link">Explore the collection <ArrowDown size={15} /></a></div>
     </section>
     {!registry && <section className="featured-world" aria-labelledby="featured-title">
-      <Image src="/voidscape-world.jpg" alt="ภาพคอนเซ็ปต์มิติ Voidscape: เกาะหินบล็อกลอยฟ้าและประตูท่ามกลางถ้ำขนาดใหญ่" fill priority sizes="(max-width: 1280px) 100vw, 1200px" className="world-image" />
+      <Image src="/voidscape-world.jpg" alt="ภาพคอนเซ็ปต์มิติ Evergarden: สวนลอยฟ้าและประตูมิติ Crying Obsidian" fill priority sizes="(max-width: 1280px) 100vw, 1200px" className="world-image" />
       <div className="world-shade" />
-      <div className="featured-copy"><p className="eyebrow"><span className="line-marker" /> FEATURED RELEASE <span className="release-label">v{featured.versions[0].version}</span></p><h2 id="featured-title">Voidscape</h2><p className="featured-tagline">Advance Magic Expansion: The Void</p><p className="featured-description">สร้างประตู Crying Obsidian สู่มิติ The Void<br />พิชิต 3 มหาวิหารธาตุ และเปิดคลังสมบัติ Trial Vault</p><Link href="/plugins/voidscape" className="button button-light">Explore Voidscape <ArrowUpRight size={17} /></Link></div>
-      <div className="world-caption"><span>THE VOID DIMENSION</span><span>CONCEPT ART / 01</span></div>
+      <div className="featured-copy"><p className="eyebrow"><span className="line-marker" /> FEATURED RELEASE <span className="release-label">v{featured.versions[0].version}</span></p><h2 id="featured-title">Evergarden</h2><p className="featured-tagline">Advance Magic Expansion: Twilight Gardens</p><p className="featured-description">สร้างประตู Crying Obsidian สู่มิติ Evergarden<br />พิชิต 3 มหาวิหารธาตุ และเปิดคลังสมบัติ Evergarden Vault</p><Link href="/plugins/evergarden" className="button button-light">Explore Evergarden <ArrowUpRight size={17} /></Link></div>
+      <div className="world-caption"><span>EVERGARDEN DIMENSION</span><span>CONCEPT ART / 01</span></div>
     </section>}
     <div className="assurance-strip"><span><Server size={16} /> Paper & Purpur <span className="strip-note">server plugins</span></span><span><FileArchive size={16} /> Direct .jar downloads</span><span><Code2 size={16} /> Commands & permissions included</span></div>
     <section className="library-section" id="library" aria-labelledby="library-heading">

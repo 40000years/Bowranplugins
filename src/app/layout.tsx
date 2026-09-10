@@ -13,6 +13,7 @@ export const metadata: Metadata = {
     'ปลั๊กอิน minecraft',
     'bowranplugins',
     'afterdeath',
+    'evergarden',
     'voidscape',
     'advancedcombat',
     'antifreecam',
