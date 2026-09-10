@@ -542,6 +542,27 @@ export const PLUGINS: PluginData[] = [
       'ปรับแต่งค่าความเสียหาย, เปิด/ปิดไฟจากอุกกาบาต, และการตั้งค่า Resource Pack ได้ที่ /plugins/advance-magic/config.yml',
     versions: [
       {
+        version: '1.2.0',
+        minecraftVersions: ['26.2'],
+        releaseDate: '2026-09-10',
+        fileSize: '3.05 MB',
+        downloadUrl: '/api/download?plugin=advance-magic&v=1.2.0',
+        filename: 'advance-magic.jar',
+        changelog: [
+          'อัปเกรดระบบสกิล Active 2 จังหวะ (2-Stage / Multi-Wave) ครบทั้ง 15 สกิลในเกม',
+          'Earth Wall: ขยายเป็นป้อมปราการ 2 ชั้นหนาแน่น (กว้าง 7 x สูง 4 x หนา 2 บล็อก รวม 56 บล็อก) พร้อมคลื่นแผ่นดินไหวสตันศัตรู และคลื่นหินถล่มผลักศัตรูตอนหมดเวลา',
+          'Meteor Strike: เพิ่มเป็นฝนอุกกาบาตทิ้งระเบิด 3 ลูกซ้อน (3-Meteor Bombardment Barrage)',
+          'Wither Ray: ปืนกลรัว 6 กะโหลก Wither Skull ต่อเนื่อง พร้อม Charged Finisher ลูกที่ 6 รัศมีกว้างและ Wither III',
+          'Invisibility Shroud: เพิ่ม Stage 2 Ambush Execution Strike โจมตีเปิดจากเงามืดบวกโบนัสทันที +50 ดาเมจ พร้อมศัตรูติดตาบอดและตัวอ่อนแรง',
+          'Lightning Strike: เพิ่ม Stage 2 คลื่นประจุไฟฟ้าโอเวอร์ชาร์จช็อตระเบิดตามหลัง 7 บล็อก',
+          'Frost Nova: เพิ่ม Stage 2 Glacial Shatter ระเบิดเศษน้ำแข็งแตกกระจายทำดาเมจเยือกแข็งและผลักศัตรูกระเด็น',
+          'Void Pull: เพิ่ม Stage 2 Event Horizon Collapse หลุมดำยุบตัวระเบิดดีดส่งศัตรูลอยเคว้งขึ้นฟ้า',
+          'Poison Spores & Shulker: สปอร์แตกตัว 3 ลูกย่อยระเบิดซ้ำ และกระสุนชัลเกอร์ติดตาม 2 นัดซ้อน (Twin Homing)',
+          'Nature\'s Bloom & Iron Armor: เพิ่ม Second Bloom ฮีลรอบสองพร้อมรากไม้ตวัดรัดศัตรู และเกราะเหล็กคลื่นกระแทกผลักศัตรู',
+          'เพิ่มประสิทธิภาพฝั่งเซิร์ฟเวอร์ (Server Optimization): จำกัดอนุภาค คืนหน่วยความจำโปรเจกไทล์ และลดภาระ tick packet ป้องกันเซิร์ฟเวอร์แล็ก',
+        ],
+      },
+      {
         version: '1.1.0',
         minecraftVersions: ['26.2'],
         releaseDate: '2026-09-10',
