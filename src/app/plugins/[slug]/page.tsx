@@ -87,7 +87,9 @@ export default function PluginDetailPage({
               <figcaption>VOIDSCAPE / DIMENSION CONCEPT ART</figcaption>
             </figure>
           )}
-          {(plugin.slug === "afterdeath" || plugin.slug === "nightvision-toggle") && (
+          {(plugin.slug === "afterdeath" ||
+            plugin.slug === "nightvision-toggle" ||
+            plugin.slug === "advance-magic") && (
             <figure className="detail-video">
               <video
                 controls

@@ -178,7 +178,7 @@ export const PLUGINS: PluginData[] = [
         version: '3.0.0',
         minecraftVersions: ['26.2'],
         releaseDate: '2026-09-10',
-        fileSize: '82 KB',
+        fileSize: '124 KB',
         downloadUrl: '/api/download?plugin=voidscape&v=3.0.0',
         filename: 'voidscape.jar',
         changelog: [
@@ -553,12 +553,12 @@ export const PLUGINS: PluginData[] = [
         version: '1.3.0',
         minecraftVersions: ['26.2'],
         releaseDate: '2026-09-10',
-        fileSize: '3.20 MB',
+        fileSize: '3.72 MB',
         downloadUrl: '/api/download?plugin=advance-magic&v=1.3.0',
         filename: 'advance-magic.jar',
         changelog: [
           'ยกเครื่องระบบสูตรคราฟต์คทาเวทมนตร์ใหม่ทั้งหมด: เปลี่ยนช่องตรงกลางเป็นไอเทม Core of ... (แกนเวทมนตร์ 15 ธาตุ)',
-          'ล้อมรอบแกน Core ด้วย 8 Netherite Ingot (หรือ Nether Star) ที่โต๊ะคราฟต์ 3x3 เพื่อสร้างคทาเวทมนตร์ที่ต้องการ',
+          'ล้อมรอบแกน Core ด้วย 8 Netherite Ingot / Nether Star (สามารถผสมกันได้) ที่โต๊ะคราฟต์ 3x3 หรือบล็อก Crafter อัตโนมัติ',
           'แกนเวทมนตร์ทั้ง 15 ธาตุ (Core of Lightning, Core of Frost, Core of Shadows, Core of Wither, Core of the Void ฯลฯ) ไม่สามารถคราฟต์ได้ใน Overworld ต้องหาดรอปจากหีบ Void Vault ในมิติ Voidscape เท่านั้น',
           'เพิ่มไอเทมและ Resource Pack พิกเซลอาร์ต 128x128 และโมเดล 3D แยกเฉพาะสำหรับแกนเวทมนตร์ทั้ง 15 ชิ้น รองรับทั้ง Java และ Bedrock ผ่าน Geyser',
           'เพิ่มคำสั่ง /magic give <player> <spell> [wand|core] และ /magic givecore <player> <spell> สำหรับผู้ดูแลระบบ',
