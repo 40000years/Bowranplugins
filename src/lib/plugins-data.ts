@@ -169,8 +169,7 @@ export const PLUGINS: PluginData[] = [
       'ดาวน์โหลดไฟล์ voidscape.jar จากปุ่มด้านล่าง',
       'นำไฟล์ไปวางในโฟลเดอร์ /plugins/ ของเซิร์ฟเวอร์ Paper 26.2 (แนะนำให้ติดตั้งคู่กับ Advance Magic)',
       'รีสตาร์ทเซิร์ฟเวอร์ โลก the_void_v2 จะถูกโหลดขึ้นอัตโนมัติ',
-      'ติดตั้ง voidscape-java.zip หรือใส่ URL ใน config.yml สำหรับผู้เล่น Java',
-      'ติดตั้ง voidscape-bedrock.mcpack และ geyser-mappings.json ใน Geyser สำหรับผู้เล่น Bedrock',
+      'ตัวปลั๊กอินฝัง Resource Pack ในไฟล์ .jar และจะแตกไฟล์ลง /plugins/Voidscape/resource-packs/ พร้อมติดตั้งลง Geyser ให้ทันที',
     ],
     configuration:
       'สามารถปรับแต่งค่า wave มอนสเตอร์, บอส HP, จุดเกิด, และรายการของรางวัลได้ที่ /plugins/Voidscape/config.yml',
@@ -179,11 +178,12 @@ export const PLUGINS: PluginData[] = [
         version: '3.0.0',
         minecraftVersions: ['26.2'],
         releaseDate: '2026-09-10',
-        fileSize: '65 KB',
+        fileSize: '80 KB',
         downloadUrl: '/api/download?plugin=voidscape&v=3.0.0',
         filename: 'voidscape.jar',
         changelog: [
           'รีเซ็ตและแปลงโฉมเป็นภาคเสริม (Expansion) อย่างเป็นทางการสำหรับ Advance Magic',
+          'ฝัง Resource Pack (ทั้ง Java .zip, Bedrock .mcpack และ Geyser Mappings) ไว้ในตัว .jar โดยตรง พร้อมระบบ Auto-Extract และ Auto-Install เข้า Geyser อัตโนมัติเมื่อเปิดเซิร์ฟเวอร์',
           'ระบบประตูมิติใหม่: สร้างกรอบ Nether Portal ด้วย Crying Obsidian และจุดชนวนด้วย Fire Charge หรือ Eye of Ender',
           'แท่น Lectern และคู่มือภาษาไทย (Guide Book) อธิบายการบินด้วย Elytra และกลไกดันเจี้ยน ณ เกาะเกิด',
           '3 มหาวิหารธาตุโบราณ: Sanctum of Darkness, Astral Sanctum และ Chrono Sanctum',
