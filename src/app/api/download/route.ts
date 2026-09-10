@@ -43,7 +43,9 @@ export async function GET(request: NextRequest) {
         headers.set('Content-Type', 'application/java-archive');
         headers.set('Content-Disposition', `attachment; filename="${downloadFilename}"`);
         headers.set('Content-Length', fileBuffer.length.toString());
-        headers.set('Cache-Control', 'public, max-age=3600');
+        headers.set('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
+        headers.set('Pragma', 'no-cache');
+        headers.set('Expires', '0');
 
         return new NextResponse(fileBuffer, { status: 200, headers });
       } catch (error) {

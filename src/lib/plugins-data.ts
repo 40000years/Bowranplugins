@@ -544,9 +544,9 @@ export const PLUGINS: PluginData[] = [
       {
         version: '1.0.0',
         minecraftVersions: ['26.2'],
-        releaseDate: '2026-09-09',
+        releaseDate: '2026-09-10',
         fileSize: '3.18 MB',
-        downloadUrl: '/api/download?plugin=advance-magic',
+        downloadUrl: '/api/download?plugin=advance-magic&v=1.0.0',
         filename: 'advance-magic.jar',
         changelog: [
           'เวอร์ชันแรก 1.0.0 รองรับ Paper 26.2 และ Java 21+',

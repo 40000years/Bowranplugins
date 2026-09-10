@@ -16,7 +16,12 @@ export function DownloadButton({ version, name, compact = false }: { version: Pl
     setState('loading');
     controller.current = new AbortController();
     try {
-      const response = await fetch(version.downloadUrl, { signal: controller.current.signal });
+      const sep = version.downloadUrl.includes('?') ? '&' : '?';
+      const fetchUrl = `${version.downloadUrl}${sep}_t=${Date.now()}`;
+      const response = await fetch(fetchUrl, {
+        cache: 'no-store',
+        signal: controller.current.signal,
+      });
       if (!response.ok) throw new Error('Download unavailable');
       const blob = await response.blob();
       const url = URL.createObjectURL(blob);
