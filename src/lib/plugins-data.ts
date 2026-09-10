@@ -549,7 +549,7 @@ export const PLUGINS: PluginData[] = [
         downloadUrl: '/api/download?plugin=advance-magic&v=1.1.0',
         filename: 'advance-magic.jar',
         changelog: [
-          'ระบบดื่ม Dragon\'s Breath เพิ่ม Max Mana (สูงสุด 300) และ Mana Regen วันละ 1 ครั้ง',
+          'ระบบดื่ม Dragon\'s Breath เพิ่ม Max Mana (สูงสุด 300) และ Mana Regen วันละ 1 ครั้งในเกม (นอนข้ามคืนเพื่อเริ่มวันใหม่ได้ทันที)',
           'ระบบ Wand Mastery ยิ่งใช้คทา ยิ่งลดคูลดาวน์ (ลด 5s ทุกๆ 5 ครั้ง ผูกกับตัวคทา)',
           'บัฟดาเมจเวทมนตร์โจมตีทุกบทขึ้น 5 เท่า (Meteor 90 HP, Lightning 60 HP, Wither 40 HP)',
           'แก้ระบบล่องหน Invisibility Shroud ซ่อนชุดเกราะและไอเทมในมือสมบูรณ์แบบ 100%',
