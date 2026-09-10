@@ -89,7 +89,15 @@ export default function PluginDetailPage({
           )}
           {(plugin.slug === "afterdeath" || plugin.slug === "nightvision-toggle") && (
             <figure className="detail-video">
-              <video controls preload="metadata" src={`/videos/${plugin.slug}.mp4`} />
+              <video
+                controls
+                playsInline
+                preload="none"
+                poster={`/videos/${plugin.slug}.jpg`}
+              >
+                <source src={`/videos/${plugin.slug}.mp4?v=2`} type="video/mp4" />
+                Your browser does not support HTML video.
+              </video>
               <figcaption>PLUGIN DEMO VIDEO</figcaption>
             </figure>
           )}
