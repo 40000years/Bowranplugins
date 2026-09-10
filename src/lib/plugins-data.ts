@@ -123,8 +123,8 @@ export const PLUGINS: PluginData[] = [
         description: 'ปราบบอสรับ Void Key คนละ 1 ดอกต่อคน เปิดคลังสมบัติสไตล์ 1.21 รับของรางวัลทันที (เปิดได้คนละ 1 ครั้งต่อวิหาร)',
       },
       {
-        title: 'เรตของรางวัล Trial Vault สมดุล 100%',
-        description: '10% ไอเทม Advance Magic, 30% Diamond Block, 30% Netherite Ingot, 20% Armor Trim, 10% อุปกรณ์พิเศษ (Rift Excavator / Smelter\'s Pickaxe / Storm Bow)',
+        title: 'เรตของรางวัล Trial Vault (30/30/20/10/10)',
+        description: '30% Diamond Block, 30% Netherite Ingot, 20% Armor Trim สุ่ม, 10% อุปกรณ์พิเศษ (Rift Excavator / Smelter\'s Pickaxe / Storm Bow), 10% สุ่มแกนคทา Core of ... (1 ใน 15 แบบของ Advance Magic)',
       },
       {
         title: 'คู่มือและแท่นอ่านในเกม',
@@ -193,9 +193,9 @@ export const PLUGINS: PluginData[] = [
           '3 มหาวิหารธาตุโบราณ: Sanctum of Darkness, Astral Sanctum และ Chrono Sanctum',
           'ระบบต่อต้าน Cheese (Anti-Boat Cheese): ป้องกันมอนสเตอร์ขึ้นเรือหรือรถราง และห้ามวางยานพาหนะในเขตวิหาร',
           'หีบสมบัติสไตล์ Trial Chamber (Vault & Void Key): ปราบบอสรับ Void Key ปลดล็อกหีบได้คนละ 1 ครั้งต่อวิหาร',
-          'เรตรางวัล 100% ตรงตามกำหนด: 10% แกนเวทมนตร์ Advance Magic, 30% Diamond Block, 30% Netherite Ingot, 20% Armor Trim Template (18 ลาย), 10% อุปกรณ์พิเศษ (Rift Excavator, Smelter\'s Pickaxe, Storm Bow)',
+          'เรตรางวัล 100% (30/30/20/10/10): 30% Diamond Block, 30% Netherite Ingot, 20% Armor Trim Template (18 ลาย), 10% อุปกรณ์พิเศษ (Rift Excavator, Smelter\'s Pickaxe, Storm Bow), 10% สุ่มแกนคทา Core of ... (1 ใน 15 แบบของ Advance Magic)',
           'พลั่ว/อีเต้อ Smelter\'s Pickaxe เผาแร่และทรายอัตโนมัติทันทีที่ขุด',
-          'รองรับ Resource Pack ทั้ง Java Edition (1.21.2+) และ Bedrock Edition ผ่าน Geyser Custom Mappings',
+          'รองรับ Resource Pack ทั้ง Java Edition (1.21.2+) และ Bedrock Edition ผ่าน Geyser Custom Mappings รวมถึงโมเดลแกนเวทมนตร์ทั้ง 15 แบบ',
         ],
       },
       {
@@ -549,6 +549,22 @@ export const PLUGINS: PluginData[] = [
     configuration:
       'ปรับแต่งค่าความเสียหาย, เปิด/ปิดไฟจากอุกกาบาต, และการตั้งค่า Resource Pack ได้ที่ /plugins/advance-magic/config.yml',
     versions: [
+      {
+        version: '1.3.0',
+        minecraftVersions: ['26.2'],
+        releaseDate: '2026-09-10',
+        fileSize: '3.20 MB',
+        downloadUrl: '/api/download?plugin=advance-magic&v=1.3.0',
+        filename: 'advance-magic.jar',
+        changelog: [
+          'ยกเครื่องระบบสูตรคราฟต์คทาเวทมนตร์ใหม่ทั้งหมด: เปลี่ยนช่องตรงกลางเป็นไอเทม Core of ... (แกนเวทมนตร์ 15 ธาตุ)',
+          'ล้อมรอบแกน Core ด้วย 8 Netherite Ingot (หรือ Nether Star) ที่โต๊ะคราฟต์ 3x3 เพื่อสร้างคทาเวทมนตร์ที่ต้องการ',
+          'แกนเวทมนตร์ทั้ง 15 ธาตุ (Core of Lightning, Core of Frost, Core of Shadows, Core of Wither, Core of the Void ฯลฯ) ไม่สามารถคราฟต์ได้ใน Overworld ต้องหาดรอปจากหีบ Void Vault ในมิติ Voidscape เท่านั้น',
+          'เพิ่มไอเทมและ Resource Pack พิกเซลอาร์ต 128x128 และโมเดล 3D แยกเฉพาะสำหรับแกนเวทมนตร์ทั้ง 15 ชิ้น รองรับทั้ง Java และ Bedrock ผ่าน Geyser',
+          'เพิ่มคำสั่ง /magic give <player> <spell> [wand|core] และ /magic givecore <player> <spell> สำหรับผู้ดูแลระบบ',
+          'ปรับปรุงคำสั่ง /magic list ให้แสดงสูตรคราฟต์ใหม่และชื่อแกนเวทมนตร์ที่ต้องใช้อย่างชัดเจน',
+        ],
+      },
       {
         version: '1.2.0',
         minecraftVersions: ['26.2'],
