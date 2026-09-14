@@ -94,7 +94,7 @@ export const PLUGINS: PluginData[] = [
     description:
       'สร้างประตู Crying Obsidian สู่มิติ Evergarden ท้าทาย 3 มหาวิหารธาตุ ปราบบอสรับ Evergarden Key เปิด Vault ลุ้นรับของแรร์คัมภีร์ไม่มีวันพัง, Limit Break, และ 22 มนตราเทพ',
     longDescription:
-      'ปลั๊กอินสำรวจมิติ Evergarden สวนลอยฟ้าแห่งความว่างเปล่า ผู้เล่นสร้างประตูด้วย Crying Obsidian ข้ามมิติท้าทาย 3 มหาวิหารธาตุ ปราบบอสสุดโหดเพื่อรับ Evergarden Key นำมาเปิด Evergarden Vault ลุ้นรับของแรร์ Scroll of Eternity (ไม่มีวันพังถาวร 0.5%), คัมภีร์ Limit Break (+1 ทลายขีดจำกัด), 22 มนตราเทพ Unique Enchants และแกนคทา Advance Magic พร้อมระบบลากคัมภีร์ใส่อุปกรณ์ในกระเป๋า (Drag & Drop) ใช้งานง่าย ไม่ต้องใช้ทั่ง Anvil และรองรับ Bedrock 100%',
+      'ปลั๊กอินสำรวจมิติ Evergarden สวนลอยฟ้าแห่งความว่างเปล่า ผู้เล่นสร้างประตูด้วย Crying Obsidian ข้ามมิติท้าทาย 3 มหาวิหารธาตุ ปราบบอสสุดโหดเพื่อรับ Evergarden Key นำมาเปิด Evergarden Vault ลุ้นรับของแรร์ Scroll of Eternity (ไม่มีวันพังถาวร 0.5%), คัมภีร์ Limit Break (+1 ทลายขีดจำกัด), 22 มนตราเทพ Unique Enchants, แกนคทา Advance Magic 15 ธาตุ, ศิลาฟื้นฟู Repair Stone, น้ำยาเดินเวหา Void Elixir และระบบผสมเศษกุญแจ Key Shard พร้อมระบบ Drag & Drop Enchanting ลากคัมภีร์แตะทับใส่อุปกรณ์ในกระเป๋าได้โดยตรง',
     accentColor: '#10b981',
     accentGlow: 'rgba(16, 185, 129, 0.15)',
     gradientFrom: '#0a2318',
@@ -120,11 +120,11 @@ export const PLUGINS: PluginData[] = [
       },
       {
         title: 'ระบบ Drag & Drop Enchanting',
-        description: 'ลากคัมภีร์แตะทับใส่อุปกรณ์ในกระเป๋าได้ทันทีใน 1 วินาที ไม่ต้องใช้ทั่ง Anvil และรองรับ Bedrock / มือถือ 100%',
+        description: 'ลากคัมภีร์แตะทับใส่อุปกรณ์ในกระเป๋าเพื่อสลักมนตราได้ทันทีโดยไม่ต้องใช้ทั่ง',
       },
       {
-        title: 'คู่มือในเกม & เมนูทดสอบ Admin',
-        description: 'แจกหนังสือคู่มือ 4 หน้ากระชับในเกม (/evergarden guide) พร้อมเมนู /evergarden test สำหรับทีมงานทดสอบเสกของในคลิกเดียว',
+        title: 'คู่มือ 11 หน้าในเกม & เมนูทดสอบ Admin',
+        description: 'เปิดหนังสือคู่มือภาษาไทย 11 หน้าอธิบายไอเทม คทา และวัตถุดิบครบทุกชิ้น (/evergarden guide) พร้อมเมนู /evergarden test',
       },
     ],
     commands: [
@@ -186,7 +186,9 @@ export const PLUGINS: PluginData[] = [
           'ยกเครื่องระบบ Evergarden 3.0: ปรับสมดุลของรางวัล Vault ตัดเพชร/เนเธอร์ไรต์ออก ป้องกันเงินเฟ้อ',
           'เพิ่ม Scroll of Eternity (Unbreakable 100% เรต 0.5% สุดยอดของแรร์ประจำมิติ)',
           'เพิ่ม Limit Break Scrolls (+1 ทลายขีดจำกัด) และ 22 Unique Enchantments ครบทุกสาย',
-          'ระบบ Drag & Drop Enchanting สลักมนตราในกระเป๋า ไม่ต้องใช้ทั่ง Anvil รองรับ Bedrock 100%',
+          'เพิ่มระบบคราฟต์ไอเทม: Key Shard (4 ชิ้น = 1 กุญแจ), Repair Stone (ซ่อม 500 หน่วย), Void Elixir (เดินเวหา 3 นาที)',
+          'อัปเดตคู่มือในเกม 11 หน้า ละเอียดครบทุกไอเทม: วัตถุดิบ Astral Dust, Key Shard, Repair Stone, Void Elixir, คัมภีร์ และคทาเวทมนตร์ 15 ธาตุ',
+          'ระบบ Drag & Drop Enchanting สลักมนตราในกระเป๋าได้ทันทีโดยตรง',
           'บัฟบอสวิหารสุดโหด: เกราะหนา 24+16 พร้อมลดดาเมจ 35%, ท่าอัลติเมต 3 ธาตุ, โจมตีทะลวง Protection และระบบ Anti-Pillar',
           'เพิ่ม Admin Test Kit GUI (/evergarden test) เมนูเสกของ/คัมภีร์/บอสสำหรับทีมงาน',
           'สไปรต์ความละเอียดสูง 128x128 RGBA พร้อมฝัง Resource Pack ลงในตัว .jar อัตโนมัติ',
