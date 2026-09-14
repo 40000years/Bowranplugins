@@ -74,7 +74,7 @@ export default function PluginDetailPage({
       </nav>
       <div className="detail-layout">
         <div className="detail-content">
-          {(plugin.slug === "evergarden" || plugin.slug === "voidscape") && (
+          {plugin.slug === "evergarden" && (
             <figure className="detail-art">
               <Image
                 src="/voidscape-world.jpg"

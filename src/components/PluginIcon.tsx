@@ -25,7 +25,6 @@ export function PluginIcon({ slug, className = '', size = '1.75rem', color }: Pl
     case 'afterdeath':
       return <Skull {...iconProps} />;
     case 'evergarden':
-    case 'voidscape':
       return <Orbit {...iconProps} />;
     case 'advanced-combat':
       return <Swords {...iconProps} />;

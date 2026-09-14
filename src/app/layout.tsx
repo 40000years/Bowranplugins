@@ -14,7 +14,6 @@ export const metadata: Metadata = {
     'bowranplugins',
     'afterdeath',
     'evergarden',
-    'voidscape',
     'advancedcombat',
     'antifreecam',
     'nightvision',
