@@ -139,11 +139,6 @@ export const PLUGINS: PluginData[] = [
         permission: 'evergarden.admin',
       },
       {
-        command: '/evergarden locate',
-        description: 'แสดงพิกัดและทิศทางของมหาวิหารทั้ง 3 แห่งใกล้ตัว (รองรับ /void locate)',
-        permission: 'evergarden.enter',
-      },
-      {
         command: '/evergarden tp <dark|astral|time|spawn>',
         description: 'วาร์ปไปยังจุดเกิดหรือมหาวิหารทั้ง 3 แห่งทันที (เฉพาะ Admin)',
         permission: 'evergarden.admin',
